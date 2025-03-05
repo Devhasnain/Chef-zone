@@ -14,18 +14,14 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   container: {
-    marginLeft: 20,
-    marginRight: 20,
+    flex: 1,
+    paddingTop: 100,
+    paddingHorizontal: 20,
+    backgroundColor: colors.white,
   },
-  signInText: {
+  signUpText: {
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 30,
-  },
-  forgotPassword: {
-    color: colors.orange,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 20,
   },
 });

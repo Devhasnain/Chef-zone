@@ -1,14 +1,16 @@
+import { Alert, Image, View } from 'react-native';
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from 'react';
-import {Alert, Image, View} from 'react-native';
-import {images} from '../../config/Images';
+import React, { useEffect } from 'react';
+
+import { images } from '../../config/Images';
 import styles from './Splash.style';
+
 
 const Splash = ({navigation}) => {
   useEffect(() => {
     async function navigate() {
       setTimeout(async function () {
-        navigation.replace('Login');
+        navigation.replace('Intro');
       }, 2000);
     }
     navigate();
@@ -16,7 +18,7 @@ const Splash = ({navigation}) => {
 
   return (
     <View style={[styles.container]}>
-      <Image source={images.splashBg} style={styles.fullScreen} />
+      <Image source={images.splashImg} style={styles.fullScreen} />
     </View>
   );
 };

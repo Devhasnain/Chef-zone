@@ -1,6 +1,8 @@
-import {StyleSheet} from 'react-native';
-import fonts from '../../config/Fonts';
+import { StyleSheet } from 'react-native';
+
 import colors from '../../config/Colors';
+import fonts from '../../config/Fonts';
+
 
 const Styles = StyleSheet.create({
   container: {
@@ -10,7 +12,7 @@ const Styles = StyleSheet.create({
     columnGap: 3,
     marginTop: 14,
   },
-  textStyle: (color = colors.color_667085) => ({
+  textStyle: (color = colors.black) => ({
     fontSize: 14,
     fontFamily: fonts.poppinsMedium,
     fontWeight: '500',

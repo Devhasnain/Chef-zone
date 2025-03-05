@@ -1,10 +1,12 @@
+import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { MMKV } from 'react-native-mmkv';
-import { persistReducer, persistStore } from 'redux-persist';
-import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
-import baseApi from '../services/api';
+
 import authReducer from './authSlice/index';
+import baseApi from '../services/api';
+
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,7 +14,7 @@ const rootReducer = combineReducers({
 });
 
 const storage = new MMKV();
-
+// localStorage.clearAll();
 export const reduxStorage = {
   setItem: (key, value) => {
     storage.set(key, value);

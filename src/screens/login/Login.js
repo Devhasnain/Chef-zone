@@ -1,69 +1,93 @@
-import React, {useState} from 'react';
-import {ScrollView, Text, View} from 'react-native';
-import labels from '../../assets/labels/English.labels';
-import globalStyle from '../../assets/styles';
-import Button from '../../components/button/Button';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 import HaveAnAccount from '../../components/haveAnAccount/HaveAnAccount';
+import { navigate } from '../../navigation/NavigationService';
+import Button from '../../components/button/Button';
+import Title from '../../components/title/title';
 import Input from '../../components/input/Input';
+import { images } from '../../config/Images';
+import Label from '../../config/Label';
 import styles from './Login.style';
-import {images} from '../../config/Images';
-import {keyboardTypes} from '../../constants/KeyboardTypes.constants';
-import colors from '../../config/Colors';
 
-const Login = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [loginPin, setLoginPin] = useState('');
-  const [secureEntry, setSecureEntry] = useState(true);
 
-  const handleNavigation = () => {};
+const SignInScreen = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-  const handleBoolState = state => setState => () => {
-    setState(!state);
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'), // Handle Email validation
+    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'), // Handle Password validation
+  });
+
+  const handleLogin = (values) => {
+    console.log('Logging in with:', values.email, values.password);
+    // Add your authentication logic here
   };
 
-  const handleState = setState => event => {
-    setState(event);
-  };
-
-  const loginMethod = () => {
-    navigation.navigate('AppStack', {screen: 'Home'});
+  const handleNavigation = (screen) => {
+    navigate(screen);
   };
 
   return (
-    <View style={[styles.container, globalStyle.appPHStyle]}>
+    <View>
       <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainerStyle}>
-        <Text style={styles.title}>{labels.login}</Text>
-        <Input
-          placeholder={labels.emailAddress}
-          value={email}
-          onChange={handleState(setEmail)}
-          keyboardType={keyboardTypes.emailAddress}
-        />
-        <Input
-          placeholder={labels.loginPin}
-          value={loginPin}
-          secureTextEntry={secureEntry}
-          onChange={handleState(setLoginPin)}
-          rightIcon={images.eyeOff}
-          pressOnRightIcon={handleBoolState(secureEntry)(setSecureEntry)}
-        />
-        <Text style={styles.forgotText()}>
-          {labels.forgotPin}
-          <Text style={[styles.forgotText(colors.themeColor)]}>
-            {labels.reset}
-          </Text>
-        </Text>
-        <Button text={labels.login} onPress={loginMethod} />
-        <HaveAnAccount
-          text1={labels.dontHaveAnAccount}
-          text2={labels.signUp}
-          onPress={handleNavigation}
-        />
+        bounces={false}>
+
+        {/* Logo */}
+        <Image source={images.signInImg} style={styles.logo} />
+
+        <View style={styles.container}>
+          {/* Sign In Text */}
+          <Title heading={Label.signIn} />
+
+          <Formik
+            initialValues={{ email: '', password: '' }}
+            validationSchema={validationSchema}
+            onSubmit={handleLogin}
+          >
+            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => ( // Handle form submission
+              <>
+                {/* Email Input */}
+                <Input
+                  placeholder={Label.email}
+                  value={values.email}
+                  onChangeText={handleChange('email')}
+                  onBlur={handleBlur('email')}
+                />
+                {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
+
+                {/* Password Input */}
+                <Input
+                  placeholder={Label.password}
+                  onFocus={() => setPasswordVisible(true)}
+                  secureTextEntry={!passwordVisible}
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                  onBlur={handleBlur('password')}
+                />
+                {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
+
+                {/* Forgot Password */}
+                <TouchableOpacity>
+                  <Text style={styles.forgotPassword}>Forgot password?</Text>
+                </TouchableOpacity>
+
+                <Button text={Label.signIn} onPress={handleSubmit} />
+              </>
+            )}
+          </Formik>
+
+          <HaveAnAccount
+            text1={Label.dontHaveAnAccount}
+            text2={Label.signUp}
+            onPress={() => handleNavigation('SignUp')}
+          />
+        </View>
       </ScrollView>
     </View>
   );
 };
 
-export default Login;
+export default SignInScreen;

@@ -1,11 +1,13 @@
-import {StyleSheet} from 'react-native';
-import fonts from '../../config/Fonts';
+import { StyleSheet } from 'react-native';
+
 import colors from '../../config/Colors';
+import fonts from '../../config/Fonts';
+
 
 const Styles = StyleSheet.create({
   inputContainerStyle: {
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 15,
     borderColor: colors.color_D0D5DD,
     paddingHorizontal: 10,
     backgroundColor: colors.color_F9FAFB,
@@ -13,7 +15,7 @@ const Styles = StyleSheet.create({
   containerStyle: {
     paddingHorizontal: 0,
     height: 50,
-    marginBottom: 8,
+    marginVertical: 10,
   },
   inputStyle: {
     fontFamily: fonts.poppinsRegular,
