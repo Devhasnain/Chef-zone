@@ -1,18 +1,19 @@
-import React, {useRef} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {navigationRef} from './NavigationService';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useRef } from 'react';
 
-import TabStack from './tab/TabStack';
-import AuthStack from './auth/AuthStack';
-import AppStack from './app/AppStack';
+import { navigationRef } from './NavigationService';
 import DrawerStack from './drawer/DrawerStack';
+import AuthStack from './auth/AuthStack';
+import TabStack from './tab/TabStack';
+import AppStack from './app/AppStack';
+
 
 const RootStack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="AuthStack">
+    <RootStack.Navigator initialRouteName="AppStack">
       <RootStack.Screen
         options={{headerShown: false}}
         name="AuthStack"

@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../config/Colors";
+
 
 const styles = StyleSheet.create({
     container: {
@@ -9,10 +11,11 @@ const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: 'bold',
         marginBottom: 10,
+        color: colors.accent,
     },
     paragraph: {
         fontSize: 16,
-        color: 'gray',
+        color: colors.accentLight,
     },
 });
 

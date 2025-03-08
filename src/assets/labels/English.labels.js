@@ -1,11 +1,11 @@
 const labels = {
   hello: 'Hello',
-  login: 'Login',
+  SignIn: 'SignIn',
   home: 'Home',
   forgotPin: 'Forgot pin? ',
   reset: 'reset',
   emailAddress: 'Email address',
-  loginPin: 'Login pin',
+  SignInPin: 'SignIn pin',
   dontHaveAnAccount: 'Don’t have an account?',
   signUp: 'Sign up',
 };

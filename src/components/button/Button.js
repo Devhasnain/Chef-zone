@@ -9,12 +9,13 @@ const Button = ({
   text = '',
   textStyle = Styles.textStyle,
   additionalStyle = {},
+  additionalTestStyle = {},
 }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       style={[Styles.buttonStyle, additionalStyle]}>
-      <Text style={textStyle}>{text}</Text>
+      <Text style={[textStyle, additionalTestStyle]}>{text}</Text>
     </TouchableOpacity>
   );
 };

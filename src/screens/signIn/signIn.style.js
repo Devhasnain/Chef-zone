@@ -4,28 +4,25 @@ import colors from '../../config/Colors';
 
 
 export default StyleSheet.create({
+  mainContainer:{
+    flex: 1,
+    backgroundColor: colors.bgSecondary,
+  },
   logo: {
     width: "100%",
     resizeMode: 'contain',
-    marginTop: 20
+    paddingnTop: 20,
   },
   errorText: {
     color: 'red',
-    marginBottom: 10,
+    paddingnBottom: 10,
   },
   container: {
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  signInText: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 30,
+    paddingHorizontal: 20,
   },
   forgotPassword: {
-    color: colors.orange,
+    color: colors.accent,
     fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 20,
+    paddingVertical: 20,
   },
 });

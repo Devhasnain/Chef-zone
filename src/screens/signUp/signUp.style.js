@@ -4,24 +4,20 @@ import colors from '../../config/Colors';
 
 
 export default StyleSheet.create({
+  mainContainer:{
+    flex: 1,
+    backgroundColor: colors.bgSecondary,
+  },
   logo: {
     width: "100%",
     resizeMode: 'contain',
-    marginTop: 20
+    paddingTop: 20
   },
   errorText: {
     color: 'red',
-    marginBottom: 10,
+    paddingBottom: 10,
   },
   container: {
-    flex: 1,
-    paddingTop: 100,
     paddingHorizontal: 20,
-    backgroundColor: colors.white,
-  },
-  signUpText: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 30,
   },
 });

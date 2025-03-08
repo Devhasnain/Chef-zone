@@ -9,7 +9,7 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: fonts.poppinsRegular,
     alignItems: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.bgPrimary,
   },
   header: {
     width: '100%',
@@ -22,25 +22,16 @@ export default StyleSheet.create({
   },
   welcomeText: {
     fontSize: 30,
-    color: colors.orange,
+    color: colors.secondary,
   },
   title: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: colors.orange,
+    color: colors.secondary,
     marginBottom: 20,
   },
-  button: {
-    backgroundColor: '#fff',
-    paddingVertical: 15,
-    width: '90%',
-    borderRadius: 10,
-    alignItems: 'center',
-    marginVertical: 8,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: '#000',
-    fontWeight: 'bold',
+  buttonContainer: {
+    width: '100%',
+    paddingHorizontal: 20,
   },
 });

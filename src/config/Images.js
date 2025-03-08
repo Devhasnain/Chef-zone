@@ -8,4 +8,5 @@ export const images = {
   reviewImg2: require('../assets/images/introReview2.png'),
   reviewImg3: require('../assets/images/introReview3.png'),
   signInImg: require('../assets/images/signIn.png'),
+  cvLiveLogo: require('../assets/images/cvLive.png'),
 };

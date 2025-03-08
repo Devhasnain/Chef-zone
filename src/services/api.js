@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { navigationRef } from '../navigation/NavigationService';
 import { logout } from '../store/authSlice';
+
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'https://www.google.com',
@@ -16,7 +18,7 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReAuth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result?.data?.status === 401) {
-    navigationRef.current.navigate('AuthStack', {screen: 'Login'});
+    navigationRef.current.navigate('AuthStack', {screen: 'SignIn'});
     api.dispatch(logout());
   }
 };

@@ -8,15 +8,15 @@ const Styles = StyleSheet.create({
   buttonStyle: {
     width: '100%',
     minHeight: 48,
-    borderRadius: 12,
-    backgroundColor: colors.orange,
+    borderRadius: 15,
+    backgroundColor: colors.bgPrimary,
     justifyContent: 'center',
     alignItems: 'center',
   },
   textStyle: {
     fontSize: 16,
     fontFamily: fonts.poppinsRegular,
-    color: colors.white,
+    color: colors.secondary,
     textAlign: 'center',
   },
 });

@@ -12,7 +12,7 @@ const HaveAnAccount = ({text1 = '', text2 = '', onPress = () => {}}) => {
   return (
     <View style={Styles.container}>
       <Text style={[Styles.textStyle()]}>{text1}</Text>
-      <Text style={[Styles.textStyle(colors.orange)]} onPress={pressAction}>
+      <Text style={[Styles.textStyle(colors.primary)]} onPress={pressAction}>
         {text2}
       </Text>
     </View>

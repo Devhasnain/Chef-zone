@@ -8,9 +8,9 @@ const Styles = StyleSheet.create({
   inputContainerStyle: {
     borderWidth: 1,
     borderRadius: 15,
-    borderColor: colors.color_D0D5DD,
+    borderColor: colors.accent,
     paddingHorizontal: 10,
-    backgroundColor: colors.color_F9FAFB,
+    backgroundColor: colors.bgSecondary,
   },
   containerStyle: {
     paddingHorizontal: 0,
@@ -19,14 +19,8 @@ const Styles = StyleSheet.create({
   },
   inputStyle: {
     fontFamily: fonts.poppinsRegular,
-    color: colors.color_2A2F3B,
+    color: colors.accent,
     fontSize: 14,
-  },
-  labelStyle: {
-    fontFamily: fonts.poppinsRegular,
-    color: colors.labelColor,
-    fontSize: 14,
-    marginBottom: 8,
   },
 });
 

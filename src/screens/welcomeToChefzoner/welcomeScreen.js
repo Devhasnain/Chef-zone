@@ -5,28 +5,34 @@ import { navigate } from '../../navigation/NavigationService';
 import Button from '../../components/button/Button';
 import { images } from '../../config/Images';
 import styles from './welcomeScreen.style';
+import colors from '../../config/Colors';
 import Label from '../../config/Label';
 
 
 const WelcomeScreen = () => {
 
   const handleNavigate = (screen) => {
-    navigate(screen);
-  };
 
+    if (screen === 'SignIn') {
+      navigate('AuthStack', { screen: screen });
+    }
+    else {
+      navigate(screen);
+    };
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={images.signInImg} style={styles.logo} />
       </View>
       <Text style={styles.welcomeText}>{Label.welcomeScreenHeader}</Text>
-      <Text style={styles.title}>{Label.welcomeScreenTile}</Text>
-
-      <Button additionalStyle={{ marginBottom: 10, width: '80%' }} text={Label.welcomeScreenButtonText1} onPress={() => handleNavigate('Login')} />
-      <Button additionalStyle={{ marginBottom: 10, width: '80%' }} text={Label.welcomeScreenButtonText2} onPress={() => handleNavigate('Login')} />
-      <Button additionalStyle={{ marginBottom: 10, width: '80%' }} text={Label.welcomeScreenButtonText3} onPress={() => handleNavigate('Login')} />
-      <Button additionalStyle={{ width: '80%' }} text={Label.welcomeScreenButtonText4} onPress={() => handleNavigate('Login')} />
-
+      <Text style={styles.title}>{Label.brandName}</Text>
+      <View style={styles.buttonContainer}>
+        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText1} onPress={() => handleNavigate('SignIn')} />
+        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText2} onPress={() => handleNavigate('SignIn')} />
+        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText3} onPress={() => handleNavigate('SignIn')} />
+        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText4} onPress={() => handleNavigate('CVLive')} />
+      </View>
     </View>
   );
 };

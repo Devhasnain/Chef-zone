@@ -1,8 +1,9 @@
 import baseApi from './api';
 
-const login = body => {
+
+const SignIn = body => {
   return {
-    url: '/login',
+    url: '/SignIn',
     method: 'POST',
     body,
   };
@@ -10,9 +11,9 @@ const login = body => {
 
 export const AuthService = baseApi.injectEndpoints({
   endpoints: builder => ({
-    login: builder.mutation({query: login}),
+    SignIn: builder.mutation({query: SignIn}),
   }),
   overrideExisting: true,
 });
 
-export const {useLoginMutation} = AuthService;
+export const {useSignInMutation} = AuthService;

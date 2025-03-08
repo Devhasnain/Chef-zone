@@ -10,10 +10,10 @@ import Title from '../../components/title/title';
 import Input from '../../components/input/Input';
 import { images } from '../../config/Images';
 import Label from '../../config/Label';
-import styles from './Login.style';
+import styles from './signIn.style';
 
 
-const SignInScreen = () => {
+const SignIn = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const validationSchema = Yup.object().shape({
@@ -21,7 +21,7 @@ const SignInScreen = () => {
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'), // Handle Password validation
   });
 
-  const handleLogin = (values) => {
+  const handleSignIn = (values) => {
     console.log('Logging in with:', values.email, values.password);
     // Add your authentication logic here
   };
@@ -31,7 +31,7 @@ const SignInScreen = () => {
   };
 
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <ScrollView
         bounces={false}>
 
@@ -40,12 +40,12 @@ const SignInScreen = () => {
 
         <View style={styles.container}>
           {/* Sign In Text */}
-          <Title heading={Label.signIn} />
+          <Title heading={Label.signIn} paragraph={Label.signInPara}/>
 
           <Formik
             initialValues={{ email: '', password: '' }}
             validationSchema={validationSchema}
-            onSubmit={handleLogin}
+            onSubmit={handleSignIn}
           >
             {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => ( // Handle form submission
               <>
@@ -53,7 +53,7 @@ const SignInScreen = () => {
                 <Input
                   placeholder={Label.email}
                   value={values.email}
-                  onChangeText={handleChange('email')}
+                  onChange={(e) => handleChange('email', e)}
                   onBlur={handleBlur('email')}
                 />
                 {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
@@ -64,14 +64,14 @@ const SignInScreen = () => {
                   onFocus={() => setPasswordVisible(true)}
                   secureTextEntry={!passwordVisible}
                   value={values.password}
-                  onChangeText={handleChange('password')}
+                  onChange={() => handleChange('password')}
                   onBlur={handleBlur('password')}
                 />
                 {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
                 {/* Forgot Password */}
                 <TouchableOpacity>
-                  <Text style={styles.forgotPassword}>Forgot password?</Text>
+                  <Text style={styles.forgotPassword}>{Label.forgotPassword}</Text>
                 </TouchableOpacity>
 
                 <Button text={Label.signIn} onPress={handleSubmit} />
@@ -90,4 +90,4 @@ const SignInScreen = () => {
   );
 };
 
-export default SignInScreen;
+export default SignIn;

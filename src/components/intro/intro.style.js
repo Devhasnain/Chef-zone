@@ -1,11 +1,18 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
+import colors from "../../config/Colors";
 import fonts from "../../config/Fonts";
 
 
+const { width } = Dimensions.get('window');
+
 const Styles = StyleSheet.create({
     mainImgContainer: {
-        flex: 1, backgroundColor: '#fff'
+        flex: 1,
+        width,
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     container: {
         flex: 2,
@@ -16,8 +23,9 @@ const Styles = StyleSheet.create({
         width: '100%',
         height: '40%',
         borderRadius: 20,
-        borderBottomRightRadius: 0,
-        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 1,
+        borderBottomLeftRadius: 1,
+        backgroundColor: colors.accent,
     },
     bottomContainer: {
         flexDirection: 'row',
@@ -40,6 +48,17 @@ const Styles = StyleSheet.create({
         resizeMode: 'contain',
         marginTop: -50,
         alignSelf: 'center',
+    },
+    starContainer: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 15
+    },
+    starText: {
+        color: colors.primary,
+        fontSize: 25,
+        paddingHorizontal: 2,
     }
 })
 

@@ -12,7 +12,7 @@ const Styles = StyleSheet.create({
     columnGap: 3,
     marginTop: 14,
   },
-  textStyle: (color = colors.black) => ({
+  textStyle: (color = colors.accent) => ({
     fontSize: 14,
     fontFamily: fonts.poppinsMedium,
     fontWeight: '500',
