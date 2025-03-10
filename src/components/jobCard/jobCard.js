@@ -1,6 +1,5 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import React from 'react';
+import React, { memo } from 'react';
 
 import styles from './jobCard.style';
 
@@ -10,7 +9,7 @@ const JobCard = () => {
     <View style={styles.card}>
       <View style={styles.header}>
         <Text style={styles.date}>30-06-2025 - 14 shifts</Text>
-        <FontAwesome name="heart-o" size={20} color="black" />
+        {/* <FontAwesome name="heart-o" size={20} color="black" /> */}
       </View>
       <View style={styles.body}>
         <Image source={{ uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3e/Wimbledon.svg/1200px-Wimbledon.svg.png' }} style={styles.logo} />
@@ -18,7 +17,7 @@ const JobCard = () => {
           <Text style={styles.title}>Kitchen porter</Text>
           <Text style={styles.subTitle}>Wimbledon Tennis Championships (London)</Text>
           <View style={styles.locationRow}>
-            <FontAwesome name="map-marker" size={16} color="black" />
+            {/* <FontAwesome name="map-marker" size={16} color="black" /> */}
             <Text style={styles.location}> 3924.72 miles . SW195AG</Text>
           </View>
           <Text style={styles.timeAgo}>3 w ago</Text>
@@ -35,4 +34,4 @@ const JobCard = () => {
 };
 
 
-export default JobCard;
+export default memo(JobCard);

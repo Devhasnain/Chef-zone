@@ -22,6 +22,7 @@ const Label = {
     preferredLocation: 'Preferred location',
     selectRoles: 'Select roles',
     jobType: 'Job type',
+    cvButtonText:'Submit',
     intro1: 'Find qualified chefs & front of house staff today',
     intro2: 'Quick registration process. Work whenever, where ever!',
     intro3: 'Welcome to Chef Zone.\nSimply LOOK BOOK COOK',

@@ -1,6 +1,6 @@
-import {Input} from '@rneui/themed';
-import React, {memo, useCallback} from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import { Input } from '@rneui/themed';
+import React, { memo, useCallback } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import colors from '../../config/Colors';
 import Styles from './Input.style';
 import globalStyle from '../../assets/styles';
@@ -26,6 +26,7 @@ const InputField = ({
   leftIcon = '',
   rightIcon = '',
   maxLength = 10000,
+  error = '', // New error prop added
 }) => {
   const rightPress = useCallback(() => {
     pressOnRightIcon();
@@ -52,6 +53,7 @@ const InputField = ({
       </TouchableOpacity>
     );
   };
+
   return (
     <View style={[globalStyle.width('100%'), additionalStyle]}>
       <Input
@@ -65,11 +67,17 @@ const InputField = ({
         onFocus={onFocus}
         editable={editable}
         secureTextEntry={secureTextEntry}
-        inputContainerStyle={[inputContainerStyle, inputAdditionalStyle]}
+        inputContainerStyle={[
+          inputContainerStyle,
+          inputAdditionalStyle,
+          error ? { borderColor: 'red' , marginBottom:-3 } : {}, // Change border color on error
+        ]}
         containerStyle={[containerStyle, additionalStyle]}
         inputStyle={inputStyle}
         leftIcon={renderLeftIcon}
         rightIcon={renderRightIcon}
+        errorMessage={error} // Show error message dynamically
+        errorStyle={{ color: 'red' }} // Style the error message
       />
     </View>
   );

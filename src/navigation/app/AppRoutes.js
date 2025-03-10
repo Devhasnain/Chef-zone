@@ -2,7 +2,8 @@ import WelcomeScreen from '../../screens/welcomeToChefzoner/welcomeScreen';
 import Splash from '../../screens/splash/Splash';
 import CVLive from '../../screens/cvLive/cvLive';
 import Intro from '../../screens/intro/intro';
-import Home from '../../screens/home/Home';
+import BrowserJob from '../../screens/browserJob/browserJob';
+import JobDetail from '../../screens/jobDetail/jobDetail';
 
 
 export const appRoutes = [
@@ -15,15 +16,19 @@ export const appRoutes = [
     component: CVLive,
   },
   {
+    name: 'BrowserJob',
+    component: BrowserJob,
+  },
+  {
+    name: 'JobDetail',
+    component: JobDetail,
+  },
+  {
     name: 'Intro',
     component: Intro,
   },
   {
     name: 'WelcomeScreen',
     component: WelcomeScreen,
-  },
-  {
-    name: 'Home',
-    component: Home,
   },
 ];

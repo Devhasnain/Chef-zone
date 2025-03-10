@@ -23,7 +23,6 @@
     "npm": "^11.1.0",
     "react": "19.0.0",
     "react-native": "0.78.0",
-    "react-native-element-dropdown": "^2.12.4",
     "react-native-gesture-handler": "^2.24.0",
     "react-native-loader-overlay": "^1.0.0",
     "react-native-loading-spinner-overlay": "^3.0.1",

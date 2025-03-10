@@ -1,8 +1,8 @@
-import Home from '../../screens/home/Home';
+import CVLive from '../../screens/cvLive/cvLive';
 
 export const tabRoutes = [
   {
-    name: 'Home',
-    component: Home,
+    name: 'CVLive',
+    component: CVLive,
   },
 ];

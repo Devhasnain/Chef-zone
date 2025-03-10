@@ -1,40 +1,78 @@
-import { Dropdown } from 'react-native-element-dropdown';
-import { View, Text } from 'react-native';
-import React from 'react';
+import React, { memo, useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+  FlatList,
+} from "react-native";
+import styles from "./singleSelector.style";
+import { salaryData } from "../../constants/constant";
 
+const SingleSelect = ({ placeholder }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [search, setSearch] = useState("");
+  const [value, setValue] = useState("");
 
-const data = [
-  { label: 'Pakistan', value: 'PK' },
-  { label: 'India', value: 'IN' },
-  { label: 'USA', value: 'US' },
-  { label: 'Canada', value: 'CA' },
-  { label: 'Germany', value: 'DE' },
-];
+  // Filter options based on search input
+  const filteredData = salaryData.filter((item) =>
+    item.label.toLowerCase().includes(search.toLowerCase())
+  );
 
-
-const SingleSelect = ({ value, onChange }) => {
   return (
-    <View>
-      <Dropdown
-        style={{
-          height: 50,
-          borderWidth: 1,
-          borderColor: '#ccc',
-          borderRadius: 8,
-          paddingHorizontal: 10,
-        }}
-        placeholderStyle={{ color: '#aaa' }}
-        selectedTextStyle={{ color: '#000' }}
-        search
-        searchPlaceholder="Search..."
-        data={data}
-        labelField="label"
-        valueField="value"
-        value={value}
-        onChange={onChange}
-      />
+    <View style={styles.container}>
+      {/* Dropdown Button */}
+      <TouchableOpacity
+        style={styles.dropdownButton}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.selectedText}>
+          {value ? salaryData.find((item) => item.value === value)?.label : placeholder}
+        </Text>
+      </TouchableOpacity>
+
+      {/* Modal for Dropdown */}
+      <Modal visible={modalVisible} animationType="fade" transparent>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            {/* Search Input */}
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search..."
+              value={search}
+              onChangeText={setSearch}
+            />
+
+            {/* Dropdown List */}
+            <FlatList
+              data={filteredData}
+              keyExtractor={(item) => item.value}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  style={styles.option}
+                  onPress={() => {
+                    setValue(item.value);
+                    setModalVisible(false);
+                  }}
+                >
+                  <Text style={styles.optionText}>{item.label}</Text>
+                </TouchableOpacity>
+              )}
+            />
+
+            {/* Close Button */}
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.closeButtonText}>Close</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
 
-export default SingleSelect;
+export default memo(SingleSelect);

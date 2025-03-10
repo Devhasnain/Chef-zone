@@ -1,0 +1,33 @@
+ export const salaryData = [
+  { label: "£100 to £150", value: "100" },
+  { label: "£200 to £250", value: "200" },
+  { label: "£300 to £350", value: "300" },
+  { label: "£400 to £450", value: "400" },
+  { label: "£500 to £550", value: "500" },
+  { label: "£600 to £650", value: "600" },
+  { label: "£700 to £750", value: "700" },
+  { label: "£800 to £850", value: "800" },
+];
+
+export const data = [
+    {label: 'Apple', value: 'apple'},
+    {label: 'Banana', value: 'banana'},
+    {label: 'Mango', value: 'mango'},
+    {label: 'Grapes', value: 'grapes'},
+    {label: 'Orange', value: 'orange'},
+    {label: 'Pineapple', value: 'pineapple'},
+    {label: 'Strawberry', value: 'strawberry'},
+    {label: 'Blueberry', value: 'blueberry'},
+    {label: 'Watermelon', value: 'watermelon'},
+    {label: 'Peach', value: 'peach'},
+    {label: 'Kiwi', value: 'kiwi'},
+    {label: 'Papaya', value: 'papaya'},
+    {label: 'Lemon', value: 'lemon'},
+    {label: 'Lime', value: 'lime'},
+    {label: 'Cherry', value: 'cherry'},
+    {label: 'Plum', value: 'plum'},
+    {label: 'Apricot', value: 'apricot'},
+    {label: 'Pomegranate', value: 'pomegranate'},
+    {label: 'Coconut', value: 'coconut'},
+    {label: 'Avocado', value: 'avocado'},
+  ];

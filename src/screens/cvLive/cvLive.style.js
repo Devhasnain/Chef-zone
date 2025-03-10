@@ -14,7 +14,15 @@ const Styles = StyleSheet.create({
   logo: {
     width: "70%",
     resizeMode: 'contain',
+  },
+  cvUpload:{
+    marginVertical:10
+  },
+  errorText:{
+    color:"red",
+    paddingBottom:5
   }
+
 });
 
 export default Styles;
