@@ -29,7 +29,7 @@ const WelcomeScreen = () => {
       <Text style={styles.title}>{Label.brandName}</Text>
       <View style={styles.buttonContainer}>
         <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText1} onPress={() => handleNavigate('SignIn')} />
-        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText2} onPress={() => handleNavigate('SignIn')} />
+        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText2} onPress={() => handleNavigate('BusinessRegister')} />
         <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText3} onPress={() => handleNavigate('BrowserJob')} />
         <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText4} onPress={() => handleNavigate('CVLive')} />
       </View>

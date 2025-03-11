@@ -1,26 +1,25 @@
 import { StyleSheet } from "react-native";
 
+import colors from "../../config/Colors";
+
 
 const styles = StyleSheet.create({
     card: {
-      backgroundColor: 'white',
+      backgroundColor: colors.secondary,
       borderRadius: 10,
-      padding: 15,
-      shadowColor: '#000',
-      shadowOpacity: 0.1,
-      shadowOffset: { width: 0, height: 2 },
-      shadowRadius: 4,
-      elevation: 3,
-      margin: 10,
-    },
-    header: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginBottom: 10,
+      padding: 10,
+      // shadowColor: colors.accent,
+      // shadowOpacity: 0.1,
+      // shadowOffset: { width: 0, height: 2 },
+      // shadowRadius: 4,
+      // elevation: 3,
+      marginVertical:5,
+      borderWidth:0.3,
+      borderColor:colors.accentLight
     },
     date: {
-      color: 'gray',
-      fontSize: 14,
+      fontSize: 12,
+      paddingBottom:2
     },
     body: {
       flexDirection: 'row',
@@ -34,47 +33,47 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 18,
-      fontWeight: 'bold',
+      fontWeight: '500',
     },
     subTitle: {
-      fontSize: 14,
-      color: 'gray',
-      marginBottom: 5,
+      fontSize: 12,
     },
     locationRow: {
       flexDirection: 'row',
       alignItems: 'center',
     },
     location: {
-      color: 'gray',
+      fontSize:12,
+      textAlign:"center",
+      paddingBottom:5
     },
     timeAgo: {
-      color: 'gray',
+      color:  colors.accentLight,
       fontSize: 12,
-      marginTop: 5,
+      paddingBottom:5,
+      textAlign:"right"
     },
     footer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
     },
-    temporaryBadge: {
-      backgroundColor: 'orange',
-      paddingVertical: 5,
-      paddingHorizontal: 10,
-      borderRadius: 5,
-    },
     badgeText: {
-      color: 'white',
+      color: colors.secondary,
       fontWeight: 'bold',
+      fontSize:11,
+      backgroundColor:colors.bgPrimary,
+      paddingHorizontal: 5,
+      paddingVertical: 1,
+      borderRadius: 20,
     },
     salary: {
-      fontSize: 18,
+      fontSize: 15,
       fontWeight: 'bold',
     },
     hour: {
       fontSize: 14,
-      color: 'gray',
+      color: colors.accentLight,
     },
   });
  

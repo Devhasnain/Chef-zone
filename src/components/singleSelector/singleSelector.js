@@ -1,14 +1,9 @@
+import { View, Text, TouchableOpacity, Modal, TextInput, FlatList, } from "react-native";
 import React, { memo, useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Modal,
-  TextInput,
-  FlatList,
-} from "react-native";
-import styles from "./singleSelector.style";
+
 import { salaryData } from "../../constants/constant";
+import styles from "./singleSelector.style";
+
 
 const SingleSelect = ({ placeholder }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,7 +28,7 @@ const SingleSelect = ({ placeholder }) => {
       </TouchableOpacity>
 
       {/* Modal for Dropdown */}
-      <Modal visible={modalVisible} animationType="fade" transparent>
+      <Modal visible={modalVisible} animationType="slide" transparent={true}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             {/* Search Input */}

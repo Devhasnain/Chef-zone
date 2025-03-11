@@ -9,4 +9,7 @@ export const images = {
   reviewImg3: require('../assets/images/introReview3.png'),
   signInImg: require('../assets/images/signIn.png'),
   cvLiveLogo: require('../assets/images/cvLive.png'),
+  filterIcon: require('../assets/images/filter.png'),
+  uploadCompanyLogo: require('../assets/images/uploadCompanyLogo.png'),
+  cameraIcon: require('../assets/images/camera.png'),
 };
