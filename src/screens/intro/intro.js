@@ -1,68 +1,85 @@
-import { ScrollView, Text, View, Dimensions } from 'react-native';
-import { useRef, useState } from 'react';
-
-import { navigate } from '../../navigation/NavigationService';
+import React, {useRef, useState} from 'react';
+import {View, FlatList, Dimensions} from 'react-native';
+import {navigate} from '../../navigation/NavigationService';
 import IntroScreen from '../../components/intro/intro';
 import Button from '../../components/button/Button';
-import { images } from '../../config/Images';
 import colors from '../../config/Colors';
-import Label from '../../config/Label';
 import Styles from './intro.style';
+import {introData} from './introData';
 
-
-const { width } = Dimensions.get('window');
-
+const {width} = Dimensions.get('window');
+// destructuring introData object form intro file
+const {introDetail} = introData;
 const Intro = () => {
-    const scrollViewRef = useRef(null);
-    const [activeIndex, setActiveIndex] = useState(0);
-    const totalSteps = 3;
+  const flatListRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    const handleScroll = (event) => {
-        const contentOffsetX = event.nativeEvent.contentOffset.x;
-        const index = Math.round(contentOffsetX / width);
-        setActiveIndex(index);
-    };
+  const handleNext = () => {
+    if (activeIndex < introData.length - 1) {
+      flatListRef.current?.scrollToIndex({index: activeIndex + 1});
+    } else {
+      navigate('WelcomeScreen');
+    }
+  };
 
-    const handleNext = () => {
-        if (activeIndex < totalSteps - 1) {
-            scrollViewRef.current.scrollTo({ x: (activeIndex + 1) * width, animated: true });
-        } else {
-            navigate('WelcomeScreen');
-        }
-    };
+  const onViewableItemsChanged = useRef(({viewableItems}) => {
+    if (viewableItems.length > 0) {
+      setActiveIndex(viewableItems[0].index);
+    }
+  }).current;
 
-    return (
-        <View style={Styles.container}>
-            <ScrollView
-                ref={scrollViewRef}
-                horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                onScroll={handleScroll}
-                scrollEventThrottle={16}
-            >
-                {[images.introBg1, images.introBg2, images.introBg3].map((bgImg, index) => (
-                    <View key={index} style={{ width }}>
-                        <IntroScreen
-                            bgImg={bgImg}
-                            reviewImg={images[`reviewImg${index + 1}`]}
-                            onPress={handleNext}
-                            content={Label[`intro${index + 1}`]}
-                        />
-                    </View>
-                ))}
-            </ScrollView>
-            <View style={Styles.bottomContainer}>
-                <Button additionalTestStyle={{ color: colors.primary }} additionalStyle={{ width: 70, backgroundColor: "none" }} text="Skip" onPress={() => navigate('WelcomeScreen')} />
-                <View style={Styles.paginateContainer}>
-                    {[...Array(totalSteps)].map((_, index) => (
-                        <Text key={index} style={[Styles.paginate, activeIndex === index ? Styles.activePaginate : null]}></Text>
-                    ))}
-                </View>
-                <Button additionalTestStyle={{ color: colors.primary }} additionalStyle={{ width: 70, backgroundColor: "none" }} text={activeIndex === totalSteps - 1 ? "Finish" : "Next"} onPress={handleNext} />
-            </View>
+  return (
+    <View style={Styles.container}>
+      <FlatList
+        ref={flatListRef}
+        data={introDetail}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={({item}) => (
+          <View style={{width}}>
+            <IntroScreen
+              bgImg={item.bgImg}
+              reviewImg={item.reviewImg}
+              content={item.content}
+              onPress={handleNext}
+            />
+          </View>
+        )}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={{viewAreaCoveragePercentThreshold: 50}}
+      />
+
+      <View style={Styles.bottomContainer}>
+        <Button
+          text="Skip"
+          onPress={() => navigate('WelcomeScreen')}
+          additionalTestStyle={{color: colors.primary}}
+          additionalStyle={Styles.skipNextButton}
+        />
+
+        <View style={Styles.paginateContainer}>
+          {introDetail.map((_, index) => (
+            <View
+              key={index}
+              style={[
+                Styles.paginate,
+                activeIndex === index && Styles.activePaginate,
+              ]}
+            />
+          ))}
         </View>
-    );
+
+        <Button
+          text={activeIndex === introDetail.length - 1 ? 'Finish' : 'Next'}
+          onPress={handleNext}
+          additionalTestStyle={{color: colors.primary}}
+          additionalStyle={Styles.skipNextButton}
+        />
+      </View>
+    </View>
+  );
 };
 
 export default Intro;

@@ -1,10 +1,9 @@
-import { StyleSheet } from 'react-native';
-import { Dimensions } from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Dimensions} from 'react-native';
 
 import colors from '../../config/Colors';
 
-
-const { width } = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
@@ -34,5 +33,9 @@ export default StyleSheet.create({
   activePaginate: {
     width: 30,
     backgroundColor: colors.primary,
+  },
+  skipNextButton: {
+    width: 70,
+    backgroundColor: 'transparent',
   },
 });
