@@ -1,17 +1,17 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import colors from '../../config/Colors';
 
-
 export default StyleSheet.create({
-  mainContainer:{
+  mainContainer: {
     flex: 1,
     backgroundColor: colors.bgSecondary,
   },
   logo: {
-    width: "100%",
+    width: '100%',
     resizeMode: 'contain',
-    paddingTop: 20
+    // paddingTop: 20
+    backgroundColor: 'red',
   },
   errorText: {
     color: 'red',
