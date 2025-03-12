@@ -4,30 +4,8 @@ import colors from "../../config/Colors";
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: colors.secondary,
-        paddingHorizontal: 15,
-    },
-    textNotFound: {
-        textAlign: "center",
-        fontWeight: "bold",
-        fontSize: 15,
-        paddingTop: 30
-    },
-    searchContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    filterButton: {
-        width: 30,
-        height: 30,
-    },
     modalContainer: {
         flex: 1,
-        // backgroundColor: 'rgba(0, 0, 0, 0.5)', // Dark overlay
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -36,7 +14,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary,
         padding: 20,
         borderRadius: 10,
-        elevation: 5, // Shadow effect
+        elevation: 5, 
     },
     modalTitle: {
         fontSize: 18,

@@ -1,11 +1,13 @@
-import React, {useRef, useState} from 'react';
-import {View, FlatList, Dimensions} from 'react-native';
-import {navigate} from '../../navigation/NavigationService';
+import { View, FlatList, Dimensions } from 'react-native';
+import React, { useRef, useState } from 'react';
+
+import { navigate } from '../../navigation/NavigationService';
 import IntroScreen from '../../components/intro/intro';
 import Button from '../../components/button/Button';
 import colors from '../../config/Colors';
+import { introData } from './introData';
 import Styles from './intro.style';
-import {introData} from './introData';
+
 
 const {width} = Dimensions.get('window');
 // destructuring introData object form intro file

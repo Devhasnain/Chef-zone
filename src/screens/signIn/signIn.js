@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -14,7 +15,9 @@ import styles from './signIn.style';
 
 
 const SignIn = () => {
+  const { top } = useSafeAreaInsets();
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const dataField = { email: '', password: '' }
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Email is required'), // Handle Email validation
@@ -31,19 +34,19 @@ const SignIn = () => {
   };
 
   return (
-    <View style={styles.mainContainer}>
-      <ScrollView
-        bounces={false}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mainContainer}>
+      <ScrollView bounces={false} style={{ paddingTop: top }}>
 
         {/* Logo */}
         <Image source={images.signInImg} style={styles.logo} />
 
         <View style={styles.container}>
           {/* Sign In Text */}
-          <Title heading={Label.signIn} paragraph={Label.signInPara}/>
+          <Title heading={Label.signIn} paragraph={Label.signInPara} />
 
           <Formik
-            initialValues={{ email: '', password: '' }}
+            initialValues={dataField}
             validationSchema={validationSchema}
             onSubmit={handleSignIn}
           >
@@ -53,7 +56,7 @@ const SignIn = () => {
                 <Input
                   placeholder={Label.email}
                   value={values.email}
-                  onChange={(e) => handleChange('email', e)}
+                  onChange={handleChange('email')}
                   onBlur={handleBlur('email')}
                 />
                 {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
@@ -64,7 +67,7 @@ const SignIn = () => {
                   onFocus={() => setPasswordVisible(true)}
                   secureTextEntry={!passwordVisible}
                   value={values.password}
-                  onChange={() => handleChange('password')}
+                  onChange={handleChange('password')}
                   onBlur={handleBlur('password')}
                 />
                 {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
@@ -86,7 +89,7 @@ const SignIn = () => {
           />
         </View>
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

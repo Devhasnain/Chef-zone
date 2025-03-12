@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import colors from '../../config/Colors';
+
 
 export default StyleSheet.create({
   mainContainer: {
@@ -10,8 +11,6 @@ export default StyleSheet.create({
   logo: {
     width: '100%',
     resizeMode: 'contain',
-    // paddingTop: 20
-    backgroundColor: 'red',
   },
   errorText: {
     color: 'red',

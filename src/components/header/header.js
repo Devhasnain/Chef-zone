@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, TouchableOpacity } from 'react-native';
 import { Header as RNEHeader } from '@rneui/themed';
 import { Image } from 'react-native';
-import React from 'react';
+import React, { memo } from 'react';
 
 import Styles from './header.style';
 
@@ -35,4 +35,4 @@ const Header = ({ title, image, style }) => {
 }
 
 
-export default Header;
+export default memo(Header);

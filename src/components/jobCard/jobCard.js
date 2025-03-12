@@ -1,7 +1,6 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import React, { memo, useState } from 'react';
+import { View, Text, Image } from 'react-native';
+import React, { memo } from 'react';
 
-import { images } from '../../config/Images';
 import styles from './jobCard.style';
 
 

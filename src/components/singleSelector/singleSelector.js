@@ -3,6 +3,8 @@ import React, { memo, useState } from "react";
 
 import { salaryData } from "../../constants/constant";
 import styles from "./singleSelector.style";
+import Button from "../button/Button";
+import Input from "../input/Input";
 
 
 const SingleSelect = ({ placeholder }) => {
@@ -32,11 +34,11 @@ const SingleSelect = ({ placeholder }) => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             {/* Search Input */}
-            <TextInput
+            <Input
               style={styles.searchInput}
               placeholder="Search..."
               value={search}
-              onChangeText={setSearch}
+              onChange={setSearch}
             />
 
             {/* Dropdown List */}
@@ -57,12 +59,9 @@ const SingleSelect = ({ placeholder }) => {
             />
 
             {/* Close Button */}
-            <TouchableOpacity
-              style={styles.closeButton}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.closeButtonText}>Close</Text>
-            </TouchableOpacity>
+            <Button style={styles.closeButton}
+              onPress={() => setModalVisible(false)} 
+              text="Close"/>
           </View>
         </View>
       </Modal>

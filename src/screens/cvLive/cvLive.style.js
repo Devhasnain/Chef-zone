@@ -21,6 +21,9 @@ const Styles = StyleSheet.create({
   errorText:{
     color:"red",
     paddingBottom:5
+  },
+  btnStyle:{
+    marginVertical:10
   }
 
 });

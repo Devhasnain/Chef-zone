@@ -1,5 +1,8 @@
-import BusinessRegister from '../../screens/business/businessRegister/businessRegister';
+import { TermsAndConditions } from '../../screens/termsAndConditions/termsAndConditions';
+import BusinessOnBoarding from '../../screens/business/onBoarding.js/onBoarding';
+import BusinessRegister from '../../screens/business/onBoarding.js/onBoarding';
 import WelcomeScreen from '../../screens/welcomeToChefzoner/welcomeScreen';
+import { PrivacyPolicy } from '../../screens/privacyPolicy/privacyPolicy';
 import BrowserJob from '../../screens/browserJob/browserJob';
 import JobDetail from '../../screens/jobDetail/jobDetail';
 import Splash from '../../screens/splash/Splash';
@@ -33,7 +36,15 @@ export const appRoutes = [
     component: JobDetail,
   },
   {
-    name: 'BusinessRegister',
-    component: BusinessRegister,
+    name: 'BusinessOnBoarding',
+    component: BusinessOnBoarding,
+  },
+  {
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy,
+  },
+  {
+    name: 'TermsAndConditions',
+    component: TermsAndConditions,
   },
 ];

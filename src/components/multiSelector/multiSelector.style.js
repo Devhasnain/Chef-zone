@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+
 import colors from '../../config/Colors';
+
 
 export default StyleSheet.create({
   container: {
@@ -38,6 +40,9 @@ export default StyleSheet.create({
   },
   selectedItem: {
     backgroundColor: colors.primaryLight,
+  },
+  selectedText: {
+    color: colors.primary,
   },
   closeButton: {
     marginTop: 10,

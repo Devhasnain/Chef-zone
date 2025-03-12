@@ -1,8 +1,9 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
 
 import { navigate } from '../../navigation/NavigationService';
 import Button from '../../components/button/Button';
+import { buttonsData } from './welcomeScreenData';
 import { images } from '../../config/Images';
 import styles from './welcomeScreen.style';
 import colors from '../../config/Colors';
@@ -20,6 +21,7 @@ const WelcomeScreen = () => {
       navigate(screen);
     };
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -28,10 +30,15 @@ const WelcomeScreen = () => {
       <Text style={styles.welcomeText}>{Label.welcomeScreenHeader}</Text>
       <Text style={styles.title}>{Label.brandName}</Text>
       <View style={styles.buttonContainer}>
-        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText1} onPress={() => handleNavigate('SignIn')} />
-        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText2} onPress={() => handleNavigate('BusinessRegister')} />
-        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText3} onPress={() => handleNavigate('BrowserJob')} />
-        <Button additionalTestStyle={{ color: colors.accent }} additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }} text={Label.welcomeScreenButtonText4} onPress={() => handleNavigate('CVLive')} />
+        {buttonsData.map((button, index) => (
+          <Button
+            key={index}
+            additionalTestStyle={{ color: colors.accent }}
+            additionalStyle={{ marginBottom: 15, backgroundColor: colors.secondary }}
+            text={button.text}
+            onPress={() => handleNavigate(button.screen)}
+          />
+        ))}
       </View>
     </View>
   );

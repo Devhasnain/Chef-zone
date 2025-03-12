@@ -1,9 +1,11 @@
-import { Input } from '@rneui/themed';
-import React, { memo, useCallback } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
+import React, { memo, useCallback, useState } from 'react';
+import { Input } from '@rneui/themed';
+
+import globalStyle from '../../assets/styles';
 import colors from '../../config/Colors';
 import Styles from './Input.style';
-import globalStyle from '../../assets/styles';
+
 
 const InputField = ({
   label = '',
@@ -26,8 +28,20 @@ const InputField = ({
   leftIcon = '',
   rightIcon = '',
   maxLength = 10000,
-  error = '', // New error prop added
+  error = '',
 }) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    onFocus(); 
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    onBlur(); 
+  };
+
   const rightPress = useCallback(() => {
     pressOnRightIcon();
   }, [pressOnRightIcon]);
@@ -63,21 +77,22 @@ const InputField = ({
         keyboardType={keyboardType}
         onChangeText={onChange}
         maxLength={maxLength}
-        onBlur={onBlur}
-        onFocus={onFocus}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
         editable={editable}
         secureTextEntry={secureTextEntry}
         inputContainerStyle={[
           inputContainerStyle,
           inputAdditionalStyle,
-          error ? { borderColor: 'red' , marginBottom:-3 } : {}, // Change border color on error
+          error ? { borderColor: 'red', marginBottom: -3 } : {},
+          isFocused ? { borderColor: colors.primary, borderWidth: 2 } : {}, // Apply orange border when focused
         ]}
         containerStyle={[containerStyle, additionalStyle]}
         inputStyle={inputStyle}
         leftIcon={renderLeftIcon}
         rightIcon={renderRightIcon}
-        errorMessage={error} // Show error message dynamically
-        errorStyle={{ color: 'red' }} // Style the error message
+        errorMessage={error}
+        errorStyle={{ color: 'red' }}
       />
     </View>
   );

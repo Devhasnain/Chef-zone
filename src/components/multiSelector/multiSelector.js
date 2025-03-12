@@ -1,14 +1,17 @@
+import { View, Text, TextInput, TouchableOpacity, Modal, FlatList, } from "react-native";
 import React, { memo, useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  Modal,
-  FlatList,
-} from "react-native";
-import styles from "./multiSelector.style"; // Import styles
+
 import { data } from "../../constants/constant";
+import styles from "./multiSelector.style"; // Import styles
+import Button from "../button/Button";
+import Input from "../input/Input";
+
+
+// Import styles
+
+
+// Import styles
+
 
 const MultiSelect = ({ placeholder }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,7 +36,7 @@ const MultiSelect = ({ placeholder }) => {
     <View style={styles.container}>
       {/* Dropdown Button */}
       <TouchableOpacity style={styles.dropdownButton} onPress={() => setModalVisible(true)}>
-        <Text style={styles.selectedText}>
+        <Text style={selectedValues.length > 0 && styles.selectedText}>
           {selectedValues.length > 0
             ? selectedValues.map((val) => data.find((item) => item.value === val)?.label).join(", ")
             : placeholder}
@@ -45,11 +48,11 @@ const MultiSelect = ({ placeholder }) => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
             {/* Search Input */}
-            <TextInput
+            <Input
               placeholder="Search..."
               style={styles.searchInput}
               value={search}
-              onChangeText={setSearch}
+              onChange={setSearch}
             />
 
             {/* List of Items */}
@@ -63,7 +66,7 @@ const MultiSelect = ({ placeholder }) => {
                     style={[styles.item, isSelected && styles.selectedItem]}
                     onPress={() => toggleSelection(item)}
                   >
-                    <Text style={isSelected ? styles.selectedText : styles.itemText}>
+                    <Text>
                       {item.label}
                     </Text>
                   </TouchableOpacity>
@@ -72,9 +75,7 @@ const MultiSelect = ({ placeholder }) => {
             />
 
             {/* Close Button */}
-            <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
-              <Text style={styles.closeButtonText}>Close</Text>
-            </TouchableOpacity>
+            <Button style={styles.closeButton} onPress={() => setModalVisible(false)} text="Close"/>
           </View>
         </View>
       </Modal>

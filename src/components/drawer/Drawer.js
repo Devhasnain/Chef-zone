@@ -1,7 +1,9 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
+import React, { memo } from 'react';
+
 import labels from '../../assets/labels/English.labels';
 import styles from './Drawer.style';
+
 
 const Drawer = ({navigation}) => {
   return (
@@ -11,4 +13,4 @@ const Drawer = ({navigation}) => {
   );
 };
 
-export default Drawer;
+export default memo(Drawer);

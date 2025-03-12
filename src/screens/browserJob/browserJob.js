@@ -1,8 +1,8 @@
-import { FlatList, Text, TextInput, TouchableOpacity, View, Modal, Button, Image } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native';
 import React, { useState } from 'react';
 
+import BrowserJobFilterModal from '../../components/browserJob/browserJobModal';
 import { navigate } from '../../navigation/NavigationService';
-import ButtonFilter from '../../components/button/Button';
 import JobCard from '../../components/jobCard/jobCard';
 import { jobDataDemo } from '../../constants/constant';
 import Header from '../../components/header/header';
@@ -49,7 +49,7 @@ const BrowserJob = () => {
     <View style={styles.container}>
       <Header />
       <View style={styles.searchContainer}>
-        <View style={{ width: "88%" }}>
+        <View style={styles.searchInput}>
           <Input
             placeholder="Search jobs..."
             value={searchQuery}
@@ -76,65 +76,7 @@ const BrowserJob = () => {
       )}
 
       {/* Filter Modal */}
-      <Modal
-        visible={modalVisible}
-        transparent={true}
-        animationType="slide"
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text style={styles.closeButton}>Close</Text>
-            </TouchableOpacity>
-            <Text style={styles.modalTitle}>Filters</Text>
-
-            <Text style={{ paddingBottom: 15 }}>Shift Type</Text>
-            <View style={styles.radioGroup}>
-              <TouchableOpacity style={styles.separateWidth} onPress={() => setFilterValues({ ...filterValues, shiftType: 'Temporary' })}>
-                <Text style={filterValues.shiftType === 'Temporary' ? styles.selectedRadio : styles.radio}>Temporary</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.separateWidth} onPress={() => setFilterValues({ ...filterValues, shiftType: 'Permanent' })}>
-                <Text style={filterValues.shiftType === 'Permanent' ? styles.selectedRadio : styles.radio}>Permanent</Text>
-              </TouchableOpacity>
-            </View>
-
-            <Input
-              placeholder="Enter city name"
-              value={filterValues.city}
-              onChange={(text) => setFilterValues({ ...filterValues, city: text })}
-            />
-            <Input
-              placeholder="Enter shift role"
-              value={filterValues.shiftRole}
-              onChange={(text) => setFilterValues({ ...filterValues, shiftRole: text })}
-            />
-
-            <Text>Hourly Rate:</Text>
-            <View style={styles.rateContainer}>
-              <View style={styles.separateWidth}>
-                <Input
-                  placeholder="Min"
-                  keyboardType="numeric"
-                  value={filterValues.minRate}
-                  onChange={(text) => setFilterValues({ ...filterValues, minRate: text })}
-                />
-              </View>
-              <View style={styles.separateWidth}>
-                <Input
-                  placeholder="Max"
-                  keyboardType="numeric"
-                  value={filterValues.maxRate}
-                  onChange={(text) => setFilterValues({ ...filterValues, maxRate: text })}
-                />
-              </View>
-            </View>
-            <ButtonFilter text="Apply" onPress={() => {
-              filterJobs(filterValues);
-              setModalVisible(false);
-            }} />
-          </View>
-        </View>
-      </Modal>
+      <BrowserJobFilterModal modalVisible={modalVisible} setModalVisible={setModalVisible} filterValues={filterValues} setFilterValues={setFilterValues}  filterJobs={filterJobs} />
     </View>
   );
 };

@@ -1,7 +1,9 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import { Text, View } from 'react-native';
+import React, { memo } from 'react';
+
 import labels from '../../assets/labels/English.labels';
 import styles from './BotttomTab.style';
+
 
 const BottomTab = ({navigation}) => {
   return (
@@ -11,4 +13,4 @@ const BottomTab = ({navigation}) => {
   );
 };
 
-export default BottomTab;
+export default memo(BottomTab);
