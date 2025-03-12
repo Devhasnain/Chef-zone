@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {Dimensions} from 'react-native';
 
 import colors from '../../config/Colors';
+import fonts from '../../config/Fonts';
 
 const {width} = Dimensions.get('window');
 

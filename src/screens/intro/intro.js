@@ -6,6 +6,7 @@ import Button from '../../components/button/Button';
 import colors from '../../config/Colors';
 import Styles from './intro.style';
 import {introData} from './introData';
+import fonts from '../../config/Fonts';
 
 const {width} = Dimensions.get('window');
 // destructuring introData object form intro file
@@ -81,7 +82,9 @@ const Intro = () => {
         <Button
           text={activeIndex === introDetail.length - 1 ? 'Finish' : 'Next'}
           onPress={handleNext}
-          additionalTestStyle={{color: colors.primary}}
+          additionalTestStyle={{
+            color: colors.primary,
+          }}
           additionalStyle={Styles.skipNextButton}
         />
       </View>
