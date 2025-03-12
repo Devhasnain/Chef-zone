@@ -1,5 +1,5 @@
 import React, {useCallback, useRef, useState} from 'react';
-import {View, FlatList, Dimensions} from 'react-native';
+import {View, FlatList, Dimensions, Alert} from 'react-native';
 import {navigate} from '../../navigation/NavigationService';
 import IntroScreen from '../../components/intro/intro';
 import Button from '../../components/button/Button';
@@ -15,7 +15,7 @@ const Intro = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
-    if (activeIndex < introData.length - 1) {
+    if (activeIndex < introDetail.length - 1) {
       flatListRef.current?.scrollToIndex({index: activeIndex + 1});
     } else {
       navigate('WelcomeScreen');
