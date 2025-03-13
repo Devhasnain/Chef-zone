@@ -1,7 +1,7 @@
 import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native';
 import React, { useState } from 'react';
 
-import BrowserJobFilterModal from '../../components/browserJob/browserJobModal';
+import BrowserJobFilterModal from '../../components/browserJobModal/browserJobModal';
 import { navigate } from '../../navigation/NavigationService';
 import JobCard from '../../components/jobCard/jobCard';
 import { jobDataDemo } from '../../constants/constant';

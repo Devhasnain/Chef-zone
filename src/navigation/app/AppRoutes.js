@@ -1,6 +1,4 @@
 import { TermsAndConditions } from '../../screens/termsAndConditions/termsAndConditions';
-import BusinessOnBoarding from '../../screens/business/onBoarding.js/onBoarding';
-import BusinessRegister from '../../screens/business/onBoarding.js/onBoarding';
 import WelcomeScreen from '../../screens/welcomeToChefzoner/welcomeScreen';
 import { PrivacyPolicy } from '../../screens/privacyPolicy/privacyPolicy';
 import BrowserJob from '../../screens/browserJob/browserJob';
@@ -34,10 +32,6 @@ export const appRoutes = [
   {
     name: 'JobDetail',
     component: JobDetail,
-  },
-  {
-    name: 'BusinessOnBoarding',
-    component: BusinessOnBoarding,
   },
   {
     name: 'PrivacyPolicy',
