@@ -1,9 +1,15 @@
 import { ProgressSteps, ProgressStep } from "react-native-progress-steps";
 import { View, Text, TouchableOpacity } from "react-native";
 
+import SecondForm from "./onBoardingForms/secondForm";
+import ForthForm from "./onBoardingForms/fourthForm";
+import ThirdForm from "./onBoardingForms/thirdForm";
+import SixthForm from "./onBoardingForms/sixthForm";
 import FirstForm from "./onBoardingForms/firstForm";
+import FifthForm from "./onBoardingForms/fifthForm";
 import colors from "../../../config/Colors";
 import styles from "./onBoarding.style";
+import SeventhForm from "./onBoardingForms/seventhForm";
 
 
 const SeekerOnBoarding = () => {
@@ -19,9 +25,12 @@ const SeekerOnBoarding = () => {
         completedProgressBarColor={colors.primary}
         completedStepIconColor={colors.primary}
         activeLabelColor={colors.primary}
+        labelFontSize={10}
+        marginBottom={10}
+        marginTop={10}
       >
         <ProgressStep
-          label="Step 1"
+          // label="Step 1"
           onNext={onNextStep}
           nextBtnTextStyle={{ color: colors.primary }}
         >
@@ -31,58 +40,79 @@ const SeekerOnBoarding = () => {
         </ProgressStep>
 
         <ProgressStep
-          label="Step 2"
+          // label="Step 2"
           onPrevious={onPrevStep}
           nextBtnTextStyle={{ color: colors.primary }}
           previousBtnTextStyle={{ color: colors.primary }}
         >
           <View>
-            <Text>This is Step 2 content</Text>
+            <SecondForm />
           </View>
         </ProgressStep>
         <ProgressStep
-          label="Step 3"
+          // label="Step 3"
           onNext={onNextStep}
           nextBtnTextStyle={{ color: colors.primary }}
         >
           <View>
-            <FirstForm />
+            <ThirdForm />
           </View>
         </ProgressStep>
 
         <ProgressStep
-          label="Step 4"
+          // label="Step 4"
           onPrevious={onPrevStep}
           nextBtnTextStyle={{ color: colors.primary }}
           previousBtnTextStyle={{ color: colors.primary }}
         >
           <View>
-            <Text>This is Step 2 content</Text>
+            <ForthForm />
           </View>
         </ProgressStep>
+
         <ProgressStep
-          label="Step 5"
+          // label="Step 5"
           onNext={onNextStep}
           nextBtnTextStyle={{ color: colors.primary }}
         >
           <View>
-            <FirstForm />
+            <FifthForm />
           </View>
         </ProgressStep>
 
         <ProgressStep
-          label="Step 6"
+          // label="Step 6"
           onPrevious={onPrevStep}
           nextBtnTextStyle={{ color: colors.primary }}
           previousBtnTextStyle={{ color: colors.primary }}
         >
           <View>
-            <Text>This is Step 2 content</Text>
+            <SixthForm />
           </View>
         </ProgressStep>
 
         <ProgressStep
-          label="Finish"
+          // label="Step 5"
+          onNext={onNextStep}
+          nextBtnTextStyle={{ color: colors.primary }}
+        >
+          <View>
+            <SeventhForm />
+          </View>
+        </ProgressStep>
+
+        <ProgressStep
+          // label="Step 6"
+          onPrevious={onPrevStep}
+          nextBtnTextStyle={{ color: colors.primary }}
+          previousBtnTextStyle={{ color: colors.primary }}
+        >
+          <View>
+          </View>
+        </ProgressStep>
+
+        <ProgressStep
+          // label="Finish"
           onPrevious={onPrevStep}
           onSubmit={onSubmit}
           nextBtnTextStyle={{ color: colors.primary }}

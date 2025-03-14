@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
+import AgreeTermsAndPolicy from "../../../components/agreeTermsAndPolicy/agreeTermsAndPolicy";
 import { navigate } from "../../../navigation/NavigationService";
 import Header from "../../../components/header/header";
 import Button from "../../../components/button/Button";
@@ -38,6 +39,7 @@ const BusinessOnBoarding = () => {
             ]
         );
     };
+
 
     const validationSchema = Yup.object().shape({
         business: Yup.string().required("Business name is required"),
@@ -116,9 +118,7 @@ const BusinessOnBoarding = () => {
 
                                 <Input placeholder="Company description" onChange={handleChange('description')} onBlur={handleBlur('description')} value={values.description} />
                                 {touched.description && errors.description && <Text style={styles.error}>{errors.description}</Text>}
-                                <Text style={styles.termsText}>
-                                    I agree to the <Text style={styles.termsLink} onPress={() => navigate('TermsAndConditions')}>Terms and Conditions</Text> and <Text style={styles.termsLink} onPress={() => navigate('PrivacyPolicy')}>Privacy Policy</Text>
-                                </Text>
+                                <AgreeTermsAndPolicy />
                                 <Button text="Continue" onPress={handleSubmit} />
                             </View>
                         )}

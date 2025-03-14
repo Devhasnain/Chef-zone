@@ -1,4 +1,4 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 import React, { memo, useCallback, useState } from 'react';
 import { Input } from '@rneui/themed';
 

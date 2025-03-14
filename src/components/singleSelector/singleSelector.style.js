@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+
 import colors from '../../config/Colors';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     fontSize: 14,
-    color: colors.accentLight,
+    color: colors.accent,
   },
   modalContainer: {
     flex: 1,

@@ -1,19 +1,18 @@
 import { View, Text, TouchableOpacity, Modal, TextInput, FlatList, } from "react-native";
 import React, { memo, useState } from "react";
 
-import { salaryData } from "../../constants/constant";
 import styles from "./singleSelector.style";
 import Button from "../button/Button";
 import Input from "../input/Input";
 
 
-const SingleSelect = ({ placeholder }) => {
+const SingleSelect = ({ placeholder, data }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [search, setSearch] = useState("");
   const [value, setValue] = useState("");
 
   // Filter options based on search input
-  const filteredData = salaryData.filter((item) =>
+  const filteredData = data.filter((item) =>
     item.label.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -25,7 +24,7 @@ const SingleSelect = ({ placeholder }) => {
         onPress={() => setModalVisible(true)}
       >
         <Text style={styles.selectedText}>
-          {value ? salaryData.find((item) => item.value === value)?.label : placeholder}
+          {value ? data.find((item) => item.value === value)?.label : placeholder}
         </Text>
       </TouchableOpacity>
 

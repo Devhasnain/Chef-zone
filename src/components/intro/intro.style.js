@@ -58,7 +58,7 @@ const Styles = StyleSheet.create({
     starText: {
         color: colors.primary,
         fontSize: 25,
-        paddingHorizontal: 2,
+        padding: 4,
     }
 })
 

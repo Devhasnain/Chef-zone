@@ -32,6 +32,8 @@ const Label = {
     welcomeScreenButtonText2: `I'm a business`,
     welcomeScreenButtonText3: `Browse jobs`,
     welcomeScreenButtonText4: `CV Live`,
+    DoYouCurrentlyHaveAnyJobs: "Do you currently have any jobs other than Chef Zone?",
+    HowManyHours : "How many hours would you like to work per week?" 
 }
 
 export default Label;

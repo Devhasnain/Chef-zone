@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import SingleSelect from '../../components/singleSelector/singleSelector';
 import MultiSelect from '../../components/multiSelector/multiSelector';
+import { salaryData } from '../../constants/constant';
 import Header from '../../components/header/header';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
@@ -132,9 +133,11 @@ const CVLive = () => {
                   />
                   <SingleSelect
                     placeholder="Current Salary"
+                    data={salaryData}
                   />
                   <SingleSelect
                     placeholder="Preferred Salary"
+                    data={salaryData}
                   />
                   <MultiSelect
                     placeholder="Preferred location"
