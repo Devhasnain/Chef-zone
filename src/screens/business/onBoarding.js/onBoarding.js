@@ -40,7 +40,6 @@ const BusinessOnBoarding = () => {
         );
     };
 
-
     const validationSchema = Yup.object().shape({
         business: Yup.string().required("Business name is required"),
         contactName: Yup.string().required("Contact name is required"),
@@ -68,23 +67,12 @@ const BusinessOnBoarding = () => {
                     >
                         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                             <View>
-                                <Input placeholder="Business" onChange={handleChange('business')} onBlur={handleBlur('business')} value={values.business} />
-                                {touched.business && errors.business && <Text style={styles.error}>{errors.business}</Text>}
-
-                                <Input placeholder="Contact name" onChange={handleChange('contactName')} onBlur={handleBlur('contactName')} value={values.contactName} />
-                                {touched.contactName && errors.contactName && <Text style={styles.error}>{errors.contactName}</Text>}
-
-                                <Input placeholder="Brand name" onChange={handleChange('brandName')} onBlur={handleBlur('brandName')} value={values.brandName} />
-                                {touched.brandName && errors.brandName && <Text style={styles.error}>{errors.brandName}</Text>}
-
-                                <Input placeholder="Company number" onChange={handleChange('companyNumber')} onBlur={handleBlur('companyNumber')} value={values.companyNumber} />
-                                {touched.companyNumber && errors.companyNumber && <Text style={styles.error}>{errors.companyNumber}</Text>}
-
-                                <Input placeholder="VAT number" onChange={handleChange('vatNumber')} onBlur={handleBlur('vatNumber')} value={values.vatNumber} />
-                                {touched.vatNumber && errors.vatNumber && <Text style={styles.error}>{errors.vatNumber}</Text>}
-
-                                <Input placeholder="Mobile number" onChange={handleChange('mobileNumber')} onBlur={handleBlur('mobileNumber')} value={values.mobileNumber} keyboardType="numeric" />
-                                {touched.mobileNumber && errors.mobileNumber && <Text style={styles.error}>{errors.mobileNumber}</Text>}
+                                <Input placeholder="Business" value={values.business} onChange={handleChange('business')} error={touched.business && errors.business} />
+                                <Input placeholder="Contact name" value={values.contactName} onChange={handleChange('contactName')} error={touched.contactName && errors.contactName} />
+                                <Input placeholder="Brand name" value={values.brandName} onChange={handleChange('brandName')} error={touched.brandName && errors.brandName} />
+                                <Input placeholder="Company number" value={values.companyNumber} onChange={handleChange('companyNumber')} error={touched.companyNumber && errors.companyNumber} />
+                                <Input placeholder="VAT number" value={values.vatNumber} onChange={handleChange('vatNumber')} error={touched.vatNumber && errors.vatNumber} />
+                                <Input placeholder="Mobile number" value={values.mobileNumber} onChange={handleChange('mobileNumber')} keyboardType="numeric" error={touched.mobileNumber && errors.mobileNumber} />
 
                                 <View style={styles.uploadSection}>
                                     <Text>Upload Company Logo</Text>
@@ -102,24 +90,23 @@ const BusinessOnBoarding = () => {
                                     </View>
                                 </View>
 
-                                <Input placeholder="Address" onChange={handleChange('address')} onBlur={handleBlur('address')} value={values.address} />
-                                {touched.address && errors.address && <Text style={styles.error}>{errors.address}</Text>}
+                                <Input placeholder="Address" value={values.address} onChange={handleChange('address')} error={touched.address && errors.address} />
 
-                                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+                                <View style={styles.oneRowTwoFieldConatiner}>
                                     <View style={styles.oneRowTwoField}>
-                                        <Input placeholder="City" onChange={handleChange('city')} onBlur={handleBlur('city')} value={values.city} />
-                                        {touched.city && errors.city && <Text style={styles.error}>{errors.city}</Text>}
+                                        <Input placeholder="City" value={values.city} onChange={handleChange('city')} error={touched.city && errors.city} />
                                     </View>
                                     <View style={styles.oneRowTwoField}>
-                                        <Input placeholder="Postcode" onChange={handleChange('postcode')} onBlur={handleBlur('postcode')} value={values.postcode} />
-                                        {touched.postcode && errors.postcode && <Text style={styles.error}>{errors.postcode}</Text>}
+                                        <Input placeholder="Postcode" value={values.postcode} onChange={handleChange('postcode')} error={touched.postcode && errors.postcode} />
                                     </View>
                                 </View>
 
-                                <Input placeholder="Company description" onChange={handleChange('description')} onBlur={handleBlur('description')} value={values.description} />
-                                {touched.description && errors.description && <Text style={styles.error}>{errors.description}</Text>}
+                                <Input placeholder="Company description" value={values.description} onChange={handleChange('description')} error={touched.description && errors.description} />
                                 <AgreeTermsAndPolicy />
-                                <Button text="Continue" onPress={handleSubmit} />
+                                <Button text="Continue" onPress={() => {
+                                    handleSubmit();
+                                    navigate('TabStack', { screen: '' });
+                                }} />
                             </View>
                         )}
                     </Formik>

@@ -57,7 +57,6 @@ const SignUp = () => {
             onSubmit={handleSignUp}>
             {({
               handleChange,
-              handleBlur,
               handleSubmit,
               values,
               errors,
@@ -69,12 +68,9 @@ const SignUp = () => {
                   placeholder={Label.email}
                   value={values.email}
                   onChange={handleChange('email')}
-                  onBlur={handleBlur('email')}
                   keyboardType={keyboardTypes.emailAddress}
+                  error={touched.email && errors.email}
                 />
-                {touched.email && errors.email && (
-                  <Text style={styles.errorText}>{errors.email}</Text>
-                )}
 
                 {/* Password Input */}
                 <Input
@@ -83,11 +79,8 @@ const SignUp = () => {
                   secureTextEntry={!passwordVisible}
                   value={values.password}
                   onChange={handleChange('password')}
-                  onBlur={handleBlur('password')}
+                  error={touched.password && errors.password}
                 />
-                {touched.password && errors.password && (
-                  <Text style={styles.errorText}>{errors.password}</Text>
-                )}
 
                 {/* Confirm Password Input */}
                 <Input
@@ -96,19 +89,16 @@ const SignUp = () => {
                   secureTextEntry={!passwordVisible}
                   value={values.confirmPassword}
                   onChange={handleChange('confirmPassword')}
-                  onBlur={handleBlur('confirmPassword')}
+                  error={touched.confirmPassword && errors.confirmPassword}
                 />
-
-                {touched.confirmPassword && errors.confirmPassword && (
-                  <Text style={styles.errorText}>
-                    {errors.confirmPassword}
-                  </Text>
-                )}
 
                 <Button
                   additionalStyle={{ width: '100%', marginTop: 20 }}
                   text={Label.signUp}
-                  onPress={handleSubmit}
+                  onPress={() => {
+                    handleSubmit();
+                    navigate('SeekerOnBoarding');
+                  }}
                 />
               </>
             )}

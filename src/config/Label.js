@@ -22,7 +22,7 @@ const Label = {
     preferredLocation: 'Preferred location',
     selectRoles: 'Select roles',
     jobType: 'Job type',
-    cvButtonText:'Submit',
+    cvButtonText: 'Submit',
     intro1: 'Find qualified chefs & front of house staff today',
     intro2: 'Quick registration process. Work whenever, where ever!',
     intro3: 'Welcome to Chef Zone.\nSimply LOOK BOOK COOK',
@@ -31,9 +31,14 @@ const Label = {
     welcomeScreenButtonText1: `I'm a job seeker`,
     welcomeScreenButtonText2: `I'm a business`,
     welcomeScreenButtonText3: `Browse jobs`,
-    welcomeScreenButtonText4: `CV Live`,
+    welcomeScreenButtonText4: `CV live`,
     DoYouCurrentlyHaveAnyJobs: "Do you currently have any jobs other than Chef Zone?",
-    HowManyHours : "How many hours would you like to work per week?" 
+    HowManyHours: "How many hours would you like to work per week?",
+    whatCanYouDo: "What can you do?",
+    uploadCompanyLogo: "Upload Company Logo",
+    setAvailability: "Set Availability",
+    employeeStatement:"Employee Statement",
+    haveYouWatchChefZone:"Have you watched Chef Zone's handbook Videos?",
 }
 
 export default Label;

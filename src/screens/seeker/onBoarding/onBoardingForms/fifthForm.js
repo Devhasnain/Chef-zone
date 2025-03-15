@@ -2,6 +2,7 @@ import { View } from "react-native";
 
 import AgreeTermsAndPolicy from "../../../../components/agreeTermsAndPolicy/agreeTermsAndPolicy";
 import SingleSelector from "../../../../components/singleSelector/singleSelector";
+import { fifthFormStyle as styles } from "./allForm.style";
 import Title from "../../../../components/title/title";
 import Input from "../../../../components/input/Input";
 

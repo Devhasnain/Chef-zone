@@ -11,6 +11,11 @@ export const salaryData = [
   { label: "£700 to £750", value: "700" },
   { label: "£800 to £850", value: "800" },
 ];
+export const venues = [
+  { label: "UK Branch", value: "UK" },
+  { label: "USA Branch", value: "USA" },
+  { label: "UAE Branch", value: "UAE" },
+];
 
 export const data = [
     {label: 'Apple', value: 'apple'},
@@ -120,7 +125,7 @@ export const data = [
     hour: '/hour',
     image: images.splashImg,
     type: 'Temporary'
-  }
+  },
 ];
 
 export const rolesData = [
@@ -167,3 +172,54 @@ export const rolesData = [
   { id: 41, name: "Waiter", icon: images.waiter },
   { id: 42, name: "Waiting Staff", icon: images.waitingStaff },
 ];
+
+
+
+export const policies = [
+  { id: 1, title: 'Chef Zone – Strike Policy', subtitle: 'Chef Zone – Strike Policy Signed', content: 'Details about strike policies and requirements.' },
+  { id: 2, title: 'Alcohol and Drugs Policy', subtitle: 'Chef Alcohol and Drugs Policy Signed', content: 'This policy ensures a safe and healthy work environment.' },
+  { id: 3, title: 'Chef Zone Terms for Workers', subtitle: 'Chef Policy Provisions Signed', content: 'Important terms and conditions for all workers.' },
+  { id: 4, title: 'Chef Zone Vulnerable Adult Policy', subtitle: 'Chef General policy provisions Signed', content: 'Policy ensuring care for vulnerable adults. This policy ensures a safe and healthy work environment. This policy ensures a safe and healthy work environment. This policy ensures a safe and healthy work environment.' }
+];
+
+
+export const videoBannerContent = [
+  {
+    image: images.videoImage1,
+    name: "Chef Zone app video explainer"
+  },
+  {
+    image: images.videoImage2,
+    name: "Chef Zone Policies"
+  },
+  {
+    image: images.videoImage3,
+    name: "Chef Zone Fire Precautions"
+  },
+  {
+    image: images.videoImage4,
+    name: "Chef Zone Health and Safety Policy"
+  },
+  {
+    image: images.videoImage5,
+    name: "Chef Zone Strike Policy"
+  },
+]
+
+export const statements = [
+  {
+      title: 'Statement A',
+      description: "Do not choose this statement if you’re in receipt of a State, Works or Private Pension. This is my first job since 6 April and since the 6 April I’ve not received payments from any of the following:",
+      details: ['Jobseeker’s Allowance', 'Employment and Support Allowance', 'Incapacity Benefit']
+  },
+  {
+      title: 'Statement B',
+      description: "Do not choose this statement if you’re in receipt of a State, Works or Private Pension. Since 6 April I have had another job but I do not have a P45. And/or since the 6 April I have received payments from any of the following:",
+      details: ['Jobseeker’s Allowance', 'Employment and Support Allowance', 'Incapacity Benefit']
+  },
+  {
+      title: 'Statement C',
+      description: "Choose this statement if:",
+      details: ['you have another job and/or', 'you’re in receipt of a State, Works or Private Pension']
+  }
+]

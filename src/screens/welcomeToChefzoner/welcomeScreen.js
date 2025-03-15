@@ -14,7 +14,7 @@ const WelcomeScreen = () => {
 
   const handleNavigate = (screen) => {
 
-    if (screen === 'BusinessOnBoarding' || screen === 'SeekerOnBoarding') {
+    if (screen === 'BusinessOnBoarding' || screen === 'SignIn') {
       navigate('AuthStack', { screen: screen });
     }
     else {

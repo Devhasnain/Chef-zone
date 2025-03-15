@@ -1,4 +1,5 @@
 import { TermsAndConditions } from '../../screens/termsAndConditions/termsAndConditions';
+import CreateVenue from '../../screens/business/jobCreate/jobCreateForms/createVenue';
 import WelcomeScreen from '../../screens/welcomeToChefzoner/welcomeScreen';
 import { PrivacyPolicy } from '../../screens/privacyPolicy/privacyPolicy';
 import BrowserJob from '../../screens/browserJob/browserJob';
@@ -40,5 +41,9 @@ export const appRoutes = [
   {
     name: 'TermsAndConditions',
     component: TermsAndConditions,
+  },
+  {
+    name: 'CreateVenue',
+    component: CreateVenue,
   },
 ];

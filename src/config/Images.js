@@ -1,6 +1,5 @@
 export const images = {
   splashImg: require('../assets/images/splashImg.png'),
-  eyeOff: require('../assets/images/Icon.png'),
   introBg1: require('../assets/images/introBg1.jpg'),
   introBg2: require('../assets/images/introBg2.jpg'),
   introBg3: require('../assets/images/introBg3.jpg'),
@@ -12,6 +11,12 @@ export const images = {
   filterIcon: require('../assets/images/filter.png'),
   uploadCompanyLogo: require('../assets/images/uploadCompanyLogo.png'),
   cameraIcon: require('../assets/images/camera.png'),
+  videoImage1: require('../assets/images/video1.png'),
+  videoImage2: require('../assets/images/video2.png'),
+  videoImage3: require('../assets/images/video3.png'),
+  videoImage4: require('../assets/images/video4.png'),
+  videoImage5: require('../assets/images/video5.png'),
+  linkClip: require('../assets/images/linkClip.png'),
 
   // Role-specific images
   banquetingStaff: require('../assets/images/banqueting-staff.png'),

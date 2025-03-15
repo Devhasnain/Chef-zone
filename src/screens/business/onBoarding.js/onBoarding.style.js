@@ -9,10 +9,15 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary
     },
     formContainer: {
-        padding: 20
+        padding: 20,
+        flex: 1,
     },
     error: {
         color: "red"
+    },
+    oneRowTwoFieldConatiner: {
+        flexDirection: "row",
+        justifyContent: "space-between"
     },
     oneRowTwoField: {
         width: "48%"

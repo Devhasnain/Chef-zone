@@ -1,92 +1,69 @@
-import { View, Text, TouchableOpacity, ScrollView, Modal, StyleSheet, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import React, { useState } from 'react';
-import { Video } from 'expo-av';
 
-
-const policiesData = [
-  { title: 'Chef Zone – Strike Policy', signed: true },
-  { title: 'Alcohol and Drugs Policy', signed: false },
-  { title: 'Chef Zone Terms for Workers', signed: false },
-  { title: 'Chef Zone Vulnerable Adult Policy', signed: true },
-];
-
+import { policies, videoBannerContent } from '../../../../constants/constant';
+import { VideoBanner } from '../../../../components/videoBanner/videoBanner';
+import { seventhFormStyle as styles } from "./allForm.style";
+import Title from '../../../../components/title/title';
+import colors from '../../../../config/Colors';
 
 
 const SeventhForm = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  const [policies, setPolicies] = useState(policiesData);
+  const [expanded, setExpanded] = useState(null);
+  const [checked, setChecked] = useState([]);
 
-  const handleVideoPress = (video) => {
-    setSelectedVideo(video);
-    setModalVisible(true);
-  };
-
-  const togglePolicy = (index) => {
-    const updatedPolicies = [...policies];
-    updatedPolicies[index].signed = !updatedPolicies[index].signed;
-    setPolicies(updatedPolicies);
+  const toggleItem = (id) => {
+    setExpanded(expanded === id ? null : id);
+    setChecked((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
   };
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.heading}>Conditional shift offer agreements</Text>
-      <Text style={styles.subheading}>Please review and agree to the following</Text>
-
-      {policies.map((policy, index) => (
-        <TouchableOpacity key={index} style={styles.policyContainer} onPress={() => togglePolicy(index)}>
-          <Icon
-            name={policy.signed ? 'check-circle' : 'radio-button-unchecked'}
-            size={24}
-            color={policy.signed ? 'orange' : 'grey'}
-            style={styles.checkBox}
-          />
-          <Text style={styles.policyText}>{policy.title}</Text>
-        </TouchableOpacity>
-      ))}
-
-      <Text style={styles.sectionTitle}>Videos and assessments</Text>
-      {videos.map((video, index) => (
-        <TouchableOpacity key={index} style={styles.videoItem} onPress={() => handleVideoPress(video.source)}>
-          <Text style={styles.videoText}>• {video.title}</Text>
-        </TouchableOpacity>
-      ))}
-
-      {/* Video Modal */}
-      <Modal visible={modalVisible} transparent={true} animationType="slide">
-        <View style={styles.modalContainer}>
-          {/* {selectedVideo && (
-            <Video
-              source={{ uri: selectedVideo }}
-              rate={1.0}
-              volume={1.0}
-              isMuted={false}
-              resizeMode="contain"
-              shouldPlay
-              useNativeControls
-              style={styles.videoPlayer}
+    <View style={styles.container}>
+      <Title heading={'Conditional shift offer agreements'} paragraph={'Please review and agree to the following'} />
+      <View style={styles.policyContainer}>
+        {policies.map((policy) => (
+          <TouchableOpacity
+            key={policy.id}
+            onPress={() => toggleItem(policy.id)}
+            style={styles.policyItem}>
+            <View style={styles.policyContent}>
+              <Icon
+                name={'check-circle'}
+                size={24}
+                color={colors.primary}
+                style={styles.checkIcon}
+              />
+              <View style={styles.textContainer}>
+                <Text style={styles.policyTitle}>{policy.title}</Text>
+                <Text style={styles.policySubtitle}>{policy.subtitle}</Text>
+                {expanded === policy.id && (
+                  <Text style={styles.policyContentText}>{policy.content}</Text>
+                )}
+              </View>
+            </View>
+            <Icon
+              name={expanded === policy.id ? 'expand-less' : 'chevron-right'}
+              size={24}
+              color='#888'
+              style={styles.expandIcon}
             />
-          )} */}
-          <Button title="Close" onPress={() => setModalVisible(false)} color="orange" />
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      <Title heading={'Conditional shift offer agreements'} />
+      {videoBannerContent.map((item, index) => (
+        <View key={index}>
+          <VideoBanner poster={item.image} name={item.name} />
         </View>
-      </Modal>
-    </ScrollView>
+      ))}
+    </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: { backgroundColor: '#fff', padding: 15 },
-  heading: { fontSize: 24, fontWeight: 'bold', marginBottom: 10 },
-  subheading: { fontSize: 16, color: 'grey', marginBottom: 20 },
-  policyContainer: { flexDirection: 'row', alignItems: 'center', marginBottom: 15 },
-  checkBox: { marginRight: 10 },
-  policyText: { fontSize: 16, color: 'black' },
-  sectionTitle: { fontSize: 20, fontWeight: 'bold', marginVertical: 15 },
-  videoItem: { paddingVertical: 10 },
-  videoText: { fontSize: 16, color: 'darkblue' },
-  modalContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0,0,0,0.8)' },
-  videoPlayer: { width: '90%', height: 300 },
-});
+
 
 export default SeventhForm;

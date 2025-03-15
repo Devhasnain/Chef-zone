@@ -17,16 +17,15 @@ import styles from './signIn.style';
 const SignIn = () => {
   const { top } = useSafeAreaInsets();
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const dataField = { email: '', password: '' }
+  const dataField = { email: '', password: '' };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Email is required'), // Handle Email validation
-    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'), // Handle Password validation
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
   });
 
   const handleSignIn = (values) => {
     console.log('Logging in with:', values.email, values.password);
-    // Add your authentication logic here
   };
 
   const handleNavigation = (screen) => {
@@ -35,49 +34,42 @@ const SignIn = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mainContainer}>
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.mainContainer}
+    >
       <ScrollView bounces={false} style={{ paddingTop: top }}>
-
-        {/* Logo */}
         <Image source={images.signInImg} style={styles.logo} />
 
         <View style={styles.container}>
-          {/* Sign In Text */}
           <Title heading={Label.signIn} paragraph={Label.signInPara} />
 
-          <Formik
-            initialValues={dataField}
-            validationSchema={validationSchema}
-            onSubmit={handleSignIn}
-          >
-            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => ( // Handle form submission
+          <Formik initialValues={dataField} validationSchema={validationSchema} onSubmit={handleSignIn}>
+            {({ handleChange, handleSubmit, values, errors, touched }) => (
               <>
-                {/* Email Input */}
                 <Input
                   placeholder={Label.email}
                   value={values.email}
                   onChange={handleChange('email')}
-                  onBlur={handleBlur('email')}
+                  error={touched.email && errors.email}
                 />
-                {touched.email && errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
-                {/* Password Input */}
                 <Input
                   placeholder={Label.password}
                   onFocus={() => setPasswordVisible(true)}
                   secureTextEntry={!passwordVisible}
                   value={values.password}
                   onChange={handleChange('password')}
-                  onBlur={handleBlur('password')}
+                  error={touched.password && errors.password}
                 />
-                {touched.password && errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
-                {/* Forgot Password */}
                 <TouchableOpacity>
                   <Text style={styles.forgotPassword}>{Label.forgotPassword}</Text>
                 </TouchableOpacity>
 
-                <Button text={Label.signIn} onPress={handleSubmit} />
+                <Button text={Label.signIn} onPress={() => {
+                  handleSubmit();
+                  navigate('SeekerOnBoarding');
+                }} />
               </>
             )}
           </Formik>

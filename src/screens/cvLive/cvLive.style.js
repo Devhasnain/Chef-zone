@@ -10,6 +10,7 @@ const Styles = StyleSheet.create({
   },
   subContainer: {
     padding: 20,
+    flex: 1,
   },
   logo: {
     width: "70%",

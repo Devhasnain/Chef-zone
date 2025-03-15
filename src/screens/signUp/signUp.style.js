@@ -18,5 +18,7 @@ export default StyleSheet.create({
   },
   container: {
     paddingHorizontal: 20,
+    flex: 1,
+    backgroundColor: colors.bgSecondary,
   },
 });

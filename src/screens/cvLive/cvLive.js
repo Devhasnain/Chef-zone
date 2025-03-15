@@ -53,9 +53,9 @@ const CVLive = () => {
   return (
     <View style={Styles.container}>
       <Header image={images.cvLiveLogo} style={Styles.logo} />
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={Styles.subContainer}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={Styles.subContainer}>
+          <View>
             <Formik
               initialValues={{
                 firstName: '',
@@ -78,7 +78,7 @@ const CVLive = () => {
                 console.log('Form Data:', values);
               }}
             >
-              {({ values, handleChange, handleSubmit, setFieldValue, errors, touched }) => (
+              {({ values, handleChange, handleSubmit, errors, touched }) => (
                 <>
                   <Input
                     placeholder={Label.firstName}

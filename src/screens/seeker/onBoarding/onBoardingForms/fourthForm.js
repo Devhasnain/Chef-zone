@@ -1,5 +1,6 @@
 import { Text, View } from "react-native";
 
+import { fourthFormStyle as styles } from "./allForm.style";
 import Title from "../../../../components/title/title";
 import Input from "../../../../components/input/Input";
 import Label from "../../../../config/Label";
@@ -12,7 +13,7 @@ const FourthForm = () => {
 
             <Text>{Label.HowManyHours}</Text>
             <Input placeholder="Hours per week" />
-            <Text style={{ fontSize: 20, fontWeight: "600", paddingTop: 15, paddingBottom: 5 }}>Travel distance</Text>
+            <Text style={styles.title}>Travel distance</Text>
             <Text>Select how far you are willing to travel for work.</Text>
             <Input placeholder="Location selected" />
 
