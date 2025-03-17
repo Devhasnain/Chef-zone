@@ -10,6 +10,7 @@ const colors = {
   btnPrimary: '#FF5400',
   btnSecondary: '#fff',
   btnAccent: '#000000',
+  inputplaceholder: 'red',
 };
 
 export default colors;

@@ -33,6 +33,10 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ChefZone needs access to your photo library to upload files.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>ChefZone needs access to documents to select files.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Bold.ttf</string>

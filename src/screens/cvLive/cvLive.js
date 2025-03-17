@@ -1,18 +1,23 @@
-import { ScrollView, Text, View, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
-import React, { useState } from 'react';
-import { Formik } from 'formik';
+import {
+  ScrollView,
+  Text,
+  View,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from 'react-native';
+import React, {useState} from 'react';
+import {Formik} from 'formik';
 import * as Yup from 'yup';
 
 import SingleSelect from '../../components/singleSelector/singleSelector';
 import MultiSelect from '../../components/multiSelector/multiSelector';
-import { salaryData } from '../../constants/constant';
+import {salaryData} from '../../constants/constant';
 import Header from '../../components/header/header';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
-import { images } from '../../config/Images';
+import {images} from '../../config/Images';
 import Label from '../../config/Label';
 import Styles from './cvLive.style';
-
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string().required('First name is required'),
@@ -53,8 +58,13 @@ const CVLive = () => {
   return (
     <View style={Styles.container}>
       <Header image={images.cvLiveLogo} style={Styles.logo} />
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={Styles.subContainer}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={Styles.subContainer}>
+        <ScrollView
+          // showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 50}}>
           <View>
             <Formik
               initialValues={{
@@ -74,11 +84,10 @@ const CVLive = () => {
                 cvFile: null,
               }}
               validationSchema={validationSchema}
-              onSubmit={(values) => {
+              onSubmit={values => {
                 console.log('Form Data:', values);
-              }}
-            >
-              {({ values, handleChange, handleSubmit, errors, touched }) => (
+              }}>
+              {({values, handleChange, handleSubmit, errors, touched}) => (
                 <>
                   <Input
                     placeholder={Label.firstName}
@@ -97,14 +106,14 @@ const CVLive = () => {
                     value={values.email}
                     onChange={handleChange('email')}
                     error={touched.email && errors.email}
-                    keyboardType='email-address'
+                    keyboardType="email-address"
                   />
                   <Input
                     placeholder={Label.mobileNumber}
                     value={values.mobileNumber}
                     onChange={handleChange('mobileNumber')}
                     error={touched.mobileNumber && errors.mobileNumber}
-                    keyboardType='phone-pad'
+                    keyboardType="phone-pad"
                   />
                   <Input
                     placeholder={Label.address}
@@ -129,7 +138,7 @@ const CVLive = () => {
                     value={values.totalExperience}
                     onChange={handleChange('totalExperience')}
                     error={touched.totalExperience && errors.totalExperience}
-                    keyboardType='numeric'
+                    keyboardType="numeric"
                   />
                   <SingleSelect
                     placeholder="Current Salary"
@@ -139,24 +148,26 @@ const CVLive = () => {
                     placeholder="Preferred Salary"
                     data={salaryData}
                   />
-                  <MultiSelect
-                    placeholder="Preferred location"
-                  />
-                  <MultiSelect
-                    placeholder="Select roles"
-                  />
-                  <MultiSelect
-                    placeholder="Job type"
-                  />
+                  <MultiSelect placeholder="Preferred location" />
+                  <MultiSelect placeholder="Select roles" />
+                  <MultiSelect placeholder="Job type" />
 
                   {/* CV Upload Button */}
-                  <Button additionalStyle={Styles.btnStyle} text={cvFile ? 'CV Uploaded' : 'Upload CV'} onPress={() => handleSubmit()} />
+                  <Button
+                    additionalStyle={Styles.btnStyle}
+                    text={cvFile ? 'CV Uploaded' : 'Upload CV'}
+                    onPress={() => handleSubmit()}
+                  />
 
-                  {errors.cvFile && touched.cvFile && <Text style={Styles.errorText}>{errors.cvFile}</Text>}
+                  {errors.cvFile && touched.cvFile && (
+                    <Text style={Styles.errorText}>{errors.cvFile}</Text>
+                  )}
 
                   {/* Submit Button */}
-                  <Button text={Label.cvButtonText} onPress={() => handleSubmit()} />
-
+                  <Button
+                    text={Label.cvButtonText}
+                    onPress={() => handleSubmit()}
+                  />
                 </>
               )}
             </Formik>

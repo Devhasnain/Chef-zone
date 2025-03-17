@@ -1,18 +1,17 @@
-import { Image, TouchableOpacity, View } from 'react-native';
-import React, { memo, useCallback, useState } from 'react';
-import { Input } from '@rneui/themed';
+import {Image, TouchableOpacity, View} from 'react-native';
+import React, {memo, useCallback, useState} from 'react';
+import {Input} from '@rneui/themed';
 
 import globalStyle from '../../assets/styles';
 import colors from '../../config/Colors';
 import Styles from './Input.style';
-
 
 const InputField = ({
   label = '',
   value = '',
   placeholder = '',
   keyboardType = 'default',
-  placeholderTextColor = colors.color_667085,
+  placeholderTextColor = colors.inputplaceholder,
   editable = true,
   secureTextEntry = false,
   inputContainerStyle = Styles.inputContainerStyle,
@@ -34,12 +33,12 @@ const InputField = ({
 
   const handleFocus = () => {
     setIsFocused(true);
-    onFocus(); 
+    onFocus();
   };
 
   const handleBlur = () => {
     setIsFocused(false);
-    onBlur(); 
+    onBlur();
   };
 
   const rightPress = useCallback(() => {
@@ -69,32 +68,32 @@ const InputField = ({
   };
 
   return (
-    <View style={[globalStyle.width('100%'), additionalStyle]}>
-      <Input
-        value={value}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
-        keyboardType={keyboardType}
-        onChangeText={onChange}
-        maxLength={maxLength}
-        onBlur={handleBlur}
-        onFocus={handleFocus}
-        editable={editable}
-        secureTextEntry={secureTextEntry}
-        inputContainerStyle={[
-          inputContainerStyle,
-          inputAdditionalStyle,
-          error ? { borderColor: 'red', marginBottom: -3 } : {},
-          isFocused ? { borderColor: colors.primary, borderWidth: 2 } : {}, // Apply orange border when focused
-        ]}
-        containerStyle={[containerStyle, additionalStyle]}
-        inputStyle={inputStyle}
-        leftIcon={renderLeftIcon}
-        rightIcon={renderRightIcon}
-        errorMessage={error}
-        errorStyle={{ color: 'red' }}
-      />
-    </View>
+    // <View style={[globalStyle.width('100%'), additionalStyle]}>
+    <Input
+      value={value}
+      placeholder={placeholder}
+      placeholderTextColor={placeholderTextColor}
+      keyboardType={keyboardType}
+      onChangeText={onChange}
+      maxLength={maxLength}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+      editable={editable}
+      secureTextEntry={secureTextEntry}
+      inputContainerStyle={[
+        inputContainerStyle,
+        inputAdditionalStyle,
+        error ? {borderColor: 'red', marginBottom: -3} : {},
+        isFocused ? {borderColor: colors.primary, borderWidth: 2} : {}, // Apply orange border when focused
+      ]}
+      containerStyle={[containerStyle, additionalStyle]}
+      inputStyle={inputStyle}
+      leftIcon={renderLeftIcon}
+      rightIcon={renderRightIcon}
+      errorMessage={error}
+      errorStyle={{color: 'red'}}
+    />
+    // </View>
   );
 };
 

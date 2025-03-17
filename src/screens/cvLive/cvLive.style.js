@@ -1,7 +1,6 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
-import colors from "../../config/Colors";
-
+import colors from '../../config/Colors';
 
 const Styles = StyleSheet.create({
   container: {
@@ -13,20 +12,20 @@ const Styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    width: "70%",
+    width: '70%',
     resizeMode: 'contain',
+    backgroundColor: 'yellow',
   },
-  cvUpload:{
-    marginVertical:10
+  cvUpload: {
+    marginVertical: 10,
   },
-  errorText:{
-    color:"red",
-    paddingBottom:5
+  errorText: {
+    color: 'red',
+    paddingBottom: 5,
   },
-  btnStyle:{
-    marginVertical:10
-  }
-
+  btnStyle: {
+    marginVertical: 10,
+  },
 });
 
 export default Styles;
