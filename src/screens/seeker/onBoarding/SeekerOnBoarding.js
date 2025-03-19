@@ -10,8 +10,8 @@ import NinthForm from './onBoardingForms/NinthForm';
 import FirstForm from './onBoardingForms/FirstForm';
 import FifthForm from './onBoardingForms/FifthForm';
 import EightForm from './onBoardingForms/EightFrom';
+import styles from './SeekerOnBoarding.style';
 import colors from '../../../config/Colors';
-import styles from './onBoarding.style';
 
 
 const SeekerOnBoarding = () => {

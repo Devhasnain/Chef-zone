@@ -9,9 +9,9 @@ import { navigate } from "../../../navigation/NavigationService";
 import Header from "../../../components/header/Header";
 import Button from "../../../components/button/Button";
 import Input from "../../../components/input/Input";
+import styles from "./BusinessOnBoarding.style";
 import { images } from "../../../config/Images";
 import Label from "../../../config/Label";
-import styles from "./onBoarding.style";
 
 
 const BusinessOnBoarding = () => {
