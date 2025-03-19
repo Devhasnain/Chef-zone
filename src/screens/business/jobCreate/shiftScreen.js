@@ -40,7 +40,7 @@ const ShiftsScreen = () => {
                     data={tabItems}
                     horizontal
                     showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item}
+                    keyExtractor={(item) => item.id?.toString()}
                     renderItem={renderTabItem}
                     contentContainerStyle={styles.tabContainer}
                 />
@@ -48,7 +48,7 @@ const ShiftsScreen = () => {
                 {jobDataDemo.length > 0 ? (
                     <FlatList
                         data={jobDataDemo}
-                        keyExtractor={keyExtractor}
+                        keyExtractor={(item) => item.id?.toString()}
                         renderItem={renderItem}
                         showsVerticalScrollIndicator={false}
                         contentContainerStyle={styles.listContainer}
