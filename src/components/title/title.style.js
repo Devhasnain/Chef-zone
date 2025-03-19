@@ -7,6 +7,7 @@ import fonts from "../../config/Fonts";
 const styles = StyleSheet.create({
     container: {
         marginBottom: 15,
+        /// testing
     },
     heading: {
         fontSize: 32,
