@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Modal, TextInput, FlatList, } from "react-native";
 import React, { memo, useState } from "react";
 
-import styles from "./singleSelector.style";
+import styles from "./SingleSelector.style";
 import Button from "../button/Button";
 import Input from "../input/Input";
 
@@ -42,6 +42,7 @@ const SingleSelect = ({ placeholder, data }) => {
 
             {/* Dropdown List */}
             <FlatList
+            showsVerticalScrollIndicator={false}
               data={filteredData}
               keyExtractor={(item) => item.value}
               renderItem={({ item }) => (

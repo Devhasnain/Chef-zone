@@ -87,14 +87,6 @@ export const secondFormStyle = StyleSheet.create({
         fontWeight: "bold",
         paddingBottom: 10,
     },
-    input: {
-        borderWidth: 1,
-        borderColor: colors.accentLight,
-        padding: 10,
-        fontSize: 18,
-        borderRadius: 5,
-        paddingBottom: 20,
-    },
     subHeader: {
         fontSize: 18,
         fontWeight: "600",

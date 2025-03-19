@@ -1,12 +1,15 @@
-import {useNavigation} from '@react-navigation/native';
-import {Text, TouchableOpacity} from 'react-native';
-import {Header as RNEHeader} from '@rneui/themed';
-import {Image} from 'react-native';
-import React, {memo} from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
+import { Text, TouchableOpacity } from 'react-native';
+import { Header as RNEHeader } from '@rneui/themed';
+import { Image } from 'react-native';
+import React, { memo } from 'react';
 
-import Styles from './header.style';
+import Label from '../../config/Label';
+import Styles from './Header.style';
 
-const Header = ({title, image, style}) => {
+
+const Header = ({ title, image, style }) => {
   const navigation = useNavigation(); // Navigation hook for back action
 
   return (
@@ -17,8 +20,9 @@ const Header = ({title, image, style}) => {
         backgroundColor: 'red',
       }}
       leftComponent={
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={Styles.backText}>Back</Text>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: "row", alignItems:"center" }}>
+          <Icon name="arrow-left" size={15} color="black" />
+          <Text style={Styles.backText}>{Label.back}</Text>
         </TouchableOpacity>
       }
       centerComponent={

@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
 import { secondFormStyle as styles } from "./allForm.style";
-import Title from "../../../../components/title/title";
+import Title from "../../../../components/title/Title";
 import Input from "../../../../components/input/Input";
 import colors from "../../../../config/Colors";
 import Label from "../../../../config/Label";
@@ -46,11 +46,11 @@ const HourlyRateScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Title heading={"Set hourly rate (£)"} />
-            <Input placeholder="Minimum hourly rate" onChange={(e) => handleChange(e)} keyboardType="numeric"/>
+            <Title heading={Label.setHourlyRate} />
+            <Input placeholder={Label.minimumHourlyRate} onChange={(e) => handleChange(e)} keyboardType="numeric"/>
             <Text style={styles.subHeader}>{Label.setAvailability}</Text>
             <View style={styles.shiftRowText}>
-                <Text style={styles.shiftLabel}>Shifts</Text>
+                <Text style={styles.shiftLabel}>{Label.shifts}</Text>
                 <View style={styles.iconContainer}>
                     {shiftsText.map((item, index) => (
                         <Text key={index} style={styles.shiftLabel}>{item}</Text>
@@ -93,4 +93,4 @@ const HourlyRateScreen = () => {
     );
 };
 
-export default HourlyRateScreen;
+export default memo(HourlyRateScreen);

@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary
     },
     formContainer: {
-        padding: 20,
+        paddingHorizontal: 20,
         flex: 1,
     },
     error: {
@@ -65,6 +65,9 @@ const styles = StyleSheet.create({
     termsLink: {
         fontWeight: "900",
         textDecorationLine: "underline"
+    },
+    btnMargin:{
+        marginBottom: 15
     }
 });
 

@@ -5,11 +5,10 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-    padding: 20,
   },
   contentContainer: {
-    width: '90%',
-    alignSelf: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 25,
   },
   sectionHeader: {
     fontSize: 16,

@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import colors from '../../config/Colors';
+
 
 const styles = StyleSheet.create({
   card: {
@@ -57,13 +58,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  badgeText: {
+  jobType: {
     color: colors.secondary,
     fontWeight: 'bold',
     fontSize: 11,
     backgroundColor: colors.bgPrimary,
-    paddingHorizontal: 5,
-    paddingVertical: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 1.2,
     borderRadius: 20,
   },
   salary: {

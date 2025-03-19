@@ -4,12 +4,13 @@ import React, { useState } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import AgreeTermsAndPolicy from "../../../components/agreeTermsAndPolicy/agreeTermsAndPolicy";
+import AgreeTermsAndPolicy from "../../../components/agreeTermsAndPolicy/AgreeTermsAndPolicy";
 import { navigate } from "../../../navigation/NavigationService";
-import Header from "../../../components/header/header";
+import Header from "../../../components/header/Header";
 import Button from "../../../components/button/Button";
 import Input from "../../../components/input/Input";
 import { images } from "../../../config/Images";
+import Label from "../../../config/Label";
 import styles from "./onBoarding.style";
 
 
@@ -29,36 +30,32 @@ const BusinessOnBoarding = () => {
     }
 
     const openImagePicker = () => {
-        Alert.alert(
-            "Upload Photo",
-            "Choose an option",
-            [
-                { text: "Take Photo", onPress: () => console.log("Take Photo") },
-                { text: "Upload Photo", onPress: () => console.log("Upload Photo") },
-                { text: "Cancel", style: "cancel" }
-            ]
-        );
+        Alert.alert(Label.uploadPhoto, Label.chooseOption, [
+            { text: Label.takePhoto, onPress: () => console.log('Take Photo') },
+            { text: Label.uploadPhoto, onPress: () => console.log('Upload Photo') },
+            { text: Label.cancel, style: 'cancel' },
+        ]);
     };
 
     const validationSchema = Yup.object().shape({
-        business: Yup.string().required("Business name is required"),
-        contactName: Yup.string().required("Contact name is required"),
-        brandName: Yup.string().required("Brand name is required"),
-        companyNumber: Yup.string().required("Company number is required"),
-        vatNumber: Yup.string().required("VAT number is required"),
-        mobileNumber: Yup.string().matches(/^\d{10}$/, "Enter a valid mobile number").required("Mobile number is required"),
-        address: Yup.string().required("Address is required"),
-        city: Yup.string().required("City is required"),
-        postcode: Yup.string().required("Postcode is required"),
-        description: Yup.string().required("Company description is required"),
+        business: Yup.string().required(Label.businessNameReq),
+        contactName: Yup.string().required(Label.contactNameReq),
+        brandName: Yup.string().required(Label.brandNameReq),
+        companyNumber: Yup.string().required(Label.companyDescriptionReq),
+        vatNumber: Yup.string().required(Label.VATNameReq),
+        mobileNumber: Yup.string().matches(/^\d{10}$/, Label.validNumberReq).required(Label.mobileNumberReq),
+        address: Yup.string().required(Label.addressReq),
+        city: Yup.string().required(Label.cityReq),
+        postcode: Yup.string().required(Label.postcodeReq),
+        description: Yup.string().required(Label.companyDescriptionReq),
     });
 
     return (
         <View style={styles.container}>
             <Header />
-            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.formContainer}>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <Text style={styles.instructionText}>Please fill your company information.</Text>
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.formContainer} >
+                <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingVertical: 25 }}>
+                    <Text style={styles.instructionText}>{Label.fillYourCompanyInfo}</Text>
 
                     <Formik
                         initialValues={dataField}
@@ -67,15 +64,15 @@ const BusinessOnBoarding = () => {
                     >
                         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                             <View>
-                                <Input placeholder="Business" value={values.business} onChange={handleChange('business')} error={touched.business && errors.business} />
-                                <Input placeholder="Contact name" value={values.contactName} onChange={handleChange('contactName')} error={touched.contactName && errors.contactName} />
-                                <Input placeholder="Brand name" value={values.brandName} onChange={handleChange('brandName')} error={touched.brandName && errors.brandName} />
-                                <Input placeholder="Company number" value={values.companyNumber} onChange={handleChange('companyNumber')} error={touched.companyNumber && errors.companyNumber} />
-                                <Input placeholder="VAT number" value={values.vatNumber} onChange={handleChange('vatNumber')} error={touched.vatNumber && errors.vatNumber} />
-                                <Input placeholder="Mobile number" value={values.mobileNumber} onChange={handleChange('mobileNumber')} keyboardType="numeric" error={touched.mobileNumber && errors.mobileNumber} />
+                                <Input placeholder={Label.business} value={values.business} onChange={handleChange('business')} error={touched.business && errors.business} />
+                                <Input placeholder={Label.contactName} value={values.contactName} onChange={handleChange('contactName')} error={touched.contactName && errors.contactName} />
+                                <Input placeholder={Label.brandName} value={values.brandName} onChange={handleChange('brandName')} error={touched.brandName && errors.brandName} />
+                                <Input placeholder={Label.companyNumber} value={values.companyNumber} onChange={handleChange('companyNumber')} error={touched.companyNumber && errors.companyNumber} />
+                                <Input placeholder={Label.VATnumber} value={values.vatNumber} onChange={handleChange('vatNumber')} error={touched.vatNumber && errors.vatNumber} />
+                                <Input placeholder={Label.mobileNumberBusiness} value={values.mobileNumber} onChange={handleChange('mobileNumber')} keyboardType="numeric" error={touched.mobileNumber && errors.mobileNumber} />
 
                                 <View style={styles.uploadSection}>
-                                    <Text>Upload Company Logo</Text>
+                                    <Text>{Label.uploadCompanyLogo}</Text>
                                     <View style={styles.logoContainer}>
                                         <View style={styles.logoBox}>
                                             {selectedImage ? (
@@ -90,23 +87,26 @@ const BusinessOnBoarding = () => {
                                     </View>
                                 </View>
 
-                                <Input placeholder="Address" value={values.address} onChange={handleChange('address')} error={touched.address && errors.address} />
+                                <Input placeholder={Label.address} value={values.address} onChange={handleChange('address')} error={touched.address && errors.address} />
 
                                 <View style={styles.oneRowTwoFieldConatiner}>
                                     <View style={styles.oneRowTwoField}>
-                                        <Input placeholder="City" value={values.city} onChange={handleChange('city')} error={touched.city && errors.city} />
+                                        <Input placeholder={Label.city} value={values.city} onChange={handleChange('city')} error={touched.city && errors.city} />
                                     </View>
                                     <View style={styles.oneRowTwoField}>
-                                        <Input placeholder="Postcode" value={values.postcode} onChange={handleChange('postcode')} error={touched.postcode && errors.postcode} />
+                                        <Input placeholder={Label.postCode} value={values.postcode} onChange={handleChange('postcode')} error={touched.postcode && errors.postcode} />
                                     </View>
                                 </View>
 
-                                <Input placeholder="Company description" value={values.description} onChange={handleChange('description')} error={touched.description && errors.description} />
+                                <Input placeholder={Label.companyDescription} value={values.description} onChange={handleChange('description')} error={touched.description && errors.description} />
                                 <AgreeTermsAndPolicy />
-                                <Button text="Continue" onPress={() => {
+                                <Button text={Label.continue} onPress={() => {
                                     handleSubmit();
                                     navigate('TabStack', { screen: '' });
-                                }} />
+                                }}
+                                    additionalStyle={styles.btnMargin}
+
+                                />
                             </View>
                         )}
                     </Formik>

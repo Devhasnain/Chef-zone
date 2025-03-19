@@ -1,6 +1,7 @@
 import { View } from "react-native";
+import { memo } from "react";
 
-import TextSelect from "../../../../components/textSelect/textSelect";
+import TextSelect from "../../../../components/textSelect/TextSelect";
 
 
 const ThirdForm = () => {
@@ -11,4 +12,4 @@ const ThirdForm = () => {
     )
 }
 
-export default ThirdForm;
+export default memo(ThirdForm);

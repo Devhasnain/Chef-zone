@@ -1,16 +1,18 @@
-import {FlatList, Text, TouchableOpacity, View, Image} from 'react-native';
-import React, {useCallback, useState} from 'react';
+import { NativeDocumentPicker } from '@react-native-documents/picker/lib/typescript/spec/NativeDocumentPicker';
+import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native';
+import React, { useCallback, useState } from 'react';
 
-import BrowserJobFilterModal from '../../components/browserJobModal/browserJobModal';
-import {navigate} from '../../navigation/NavigationService';
-import JobCard from '../../components/jobCard/jobCard';
-import {jobDataDemo} from '../../constants/constant';
-import Header from '../../components/header/header';
-import Input from '../../components/input/Input';
-import {images} from '../../config/Images';
-import styles from './browserJob.style';
+import BrowserJobFilterModal from '../../components/browserJobModal/BrowserJobModal';
 import useStoragePermission from '../../utils/useStoragePermission';
-import {NativeDocumentPicker} from '@react-native-documents/picker/lib/typescript/spec/NativeDocumentPicker';
+import { navigate } from '../../navigation/NavigationService';
+import JobCard from '../../components/jobCard/JobCard';
+import { jobDataDemo } from '../../constants/constant';
+import Header from '../../components/header/Header';
+import Input from '../../components/input/Input';
+import { images } from '../../config/Images';
+import styles from './browserJob.style';
+import Label from '../../config/Label';
+
 
 const BrowserJob = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,28 +52,27 @@ const BrowserJob = () => {
     setFilteredJobs(filtered);
   };
   //
-  const pickDocument = async () => {
-    const hasPermission = await useStoragePermission();
-    if (!hasPermission) return;
+  // const pickDocument = async () => {
+  //   const hasPermission = await useStoragePermission();
+  //   if (!hasPermission) return;
 
-    try {
-      const res = await NativeDocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles],
-      });
+  //   try {
+  //     const res = await NativeDocumentPicker.pick({
+  //       type: [DocumentPicker.types.allFiles],
+  //     });
 
-      console.log('Selected file:', res);
-    } catch (err) {
-      if (DocumentPicker.isCancel(err)) {
-        console.log('User cancelled document picker');
-      } else {
-        console.error('Unknown error:', err);
-      }
-    }
-  };
+  //     console.log('Selected file:', res);
+  //   } catch (err) {
+  //     if (DocumentPicker.isCancel(err)) {
+  //       console.log('User cancelled document picker');
+  //     } else {
+  //       console.error('Unknown error:', err);
+  //     }
+  //   }
+  // };
 
   const renderJobCard = useCallback(({item}) => {
-    const {} = item;
-    return <JobCard jobData={item} />;
+    return <JobCard jobItem={item} />;
   }, []);
 
   // Main return
@@ -81,25 +82,25 @@ const BrowserJob = () => {
       <View style={styles.searchContainer}>
         <View style={styles.searchInput}>
           <Input
-            placeholder="Search jobs..."
+            placeholder={Label.searchJob}
             value={searchQuery}
             onChange={handleSearch}
           />
         </View>
         <TouchableOpacity onPress={() => setModalVisible(true)}>
-          {/* <Image source={images?.filterIcon} style={styles.filterButton} /> */}
+          <Image source={images?.filterIcon} style={styles.filterButton} />
         </TouchableOpacity>
       </View>
 
       {filteredJobs.length > 0 ? (
         <FlatList
-          contentContainerStyle={{paddingHorizontal: 15}}
+          contentContainerStyle={{paddingHorizontal: 20}}
           data={filteredJobs}
           keyExtractor={(_, index) => index.toString()}
           renderItem={renderJobCard}
         />
       ) : (
-        <Text style={styles.textNotFound}>No active shifts found</Text>
+        <Text style={styles.textNotFound}>{Label.noActiveShiftFound}</Text>
       )}
 
       {/* Filter Modal */}

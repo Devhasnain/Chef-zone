@@ -1,11 +1,11 @@
 import { Text, View } from "react-native";
-import { useState } from "react";
+import { memo, useState } from "react";
 
-import { VideoBanner } from "../../../../components/videoBanner/videoBanner";
+import { VideoBanner } from "../../../../components/videoBanner/VideoBanner";
 import { videoBannerContent } from "../../../../constants/constant";
 import { eightFormStyle as styles } from "./allForm.style";
 import Button from "../../../../components/button/Button";
-import Title from "../../../../components/title/title";
+import Title from "../../../../components/title/Title";
 import Label from "../../../../config/Label";
 
 
@@ -18,23 +18,23 @@ const EightForm = () => {
 
     return (
         <View>
-            <Title heading={"Skill assessment questions"} />
+            <Title heading={Label.skillAssessmentQes} />
             <Text style={styles.questionText}>
                 {Label.haveYouWatchChefZone}
             </Text>
             <View style={styles.buttonRow}>
                 <View style={styles.buttonContainer}>
-                    <Button text="Yes" onPress={() => handle(false)} />
+                    <Button text={Label.Yes} onPress={() => handle(false)} />
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button text="No" onPress={() => handle(true)} />
+                    <Button text={Label.No} onPress={() => handle(true)} />
                 </View>
             </View>
-            <Button text="Submit" />
+            <Button text={Label.Submit}/>
             {active && (
                 <View>
-                    <Text style={styles.videoHeading}>Handbook videos</Text>
-                    <Text style={styles.videoNote}>Please watch videos it will be submit automatically</Text>
+                    <Text style={styles.videoHeading}>{Label.handbookVideos}</Text>
+                    <Text style={styles.videoNote}>{Label.pleaseWatchVideo}</Text>
                     {videoBannerContent.map((item, index) => (
                         <View key={index}>
                             <VideoBanner poster={item.image} name={item.name} />
@@ -46,4 +46,4 @@ const EightForm = () => {
     );
 };
 
-export default EightForm;
+export default memo(EightForm);

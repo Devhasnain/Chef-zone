@@ -1,12 +1,16 @@
 // PostShiftStyles.js
 import { StyleSheet } from 'react-native';
 
+import colors from '../../../../config/Colors';
 
-export const venueCreateStyles = StyleSheet.create({
-  container: {
+
+export const postShiftStyles = StyleSheet.create({
+  mainContainer: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#fff',
+  },
+  container: {
+    paddingHorizontal:20
   },
   backButton: {
     marginBottom: 10,
@@ -58,3 +62,28 @@ export const venueCreateStyles = StyleSheet.create({
     fontWeight: 'bold',
   }
 });
+
+
+export const createVenueStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.secondary
+  },
+  formContainer: {
+    paddingHorizontal: 20,
+    flex: 1,
+  },
+  error: {
+    color: "red"
+  },
+  oneRowTwoFieldConatiner: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  oneRowTwoField: {
+    width: "48%"
+  },
+  createVenueBtn: {
+    marginTop:10
+  },
+})

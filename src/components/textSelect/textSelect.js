@@ -5,9 +5,9 @@ import React, { useState } from "react";
 import { rolesData } from "../../constants/constant";
 import { images } from "../../config/Images";
 import colors from "../../config/Colors";
-import styles from "./textSelect.style";
+import styles from "./TextSelect.style";
 import Label from "../../config/Label";
-import Title from "../title/title";
+import Title from "../title/Title";
 
 
 const TextSelect = () => {

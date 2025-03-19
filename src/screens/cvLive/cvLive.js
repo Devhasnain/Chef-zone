@@ -1,40 +1,36 @@
-import {
-  ScrollView,
-  Text,
-  View,
-  TouchableOpacity,
-  KeyboardAvoidingView,
-} from 'react-native';
-import React, {useState} from 'react';
-import {Formik} from 'formik';
+import { ScrollView, Text, View, TouchableOpacity, KeyboardAvoidingView, } from 'react-native';
+import React, { useState } from 'react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import SingleSelect from '../../components/singleSelector/singleSelector';
-import MultiSelect from '../../components/multiSelector/multiSelector';
-import {salaryData} from '../../constants/constant';
-import Header from '../../components/header/header';
+import SingleSelect from '../../components/singleSelector/SingleSelector';
+import MultiSelect from '../../components/multiSelector/MultiSelector';
+import { salaryData } from '../../constants/constant';
+import Header from '../../components/header/Header';
 import Button from '../../components/button/Button';
 import Input from '../../components/input/Input';
-import {images} from '../../config/Images';
+import { images } from '../../config/Images';
 import Label from '../../config/Label';
 import Styles from './cvLive.style';
 
+
 const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required('First name is required'),
-  lastName: Yup.string().required('Last name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  mobileNumber: Yup.string().required('Mobile number is required'),
-  address: Yup.string().required('Address is required'),
-  city: Yup.string().required('City is required'),
-  postCode: Yup.string().required('Post code is required'),
-  totalExperience: Yup.string().required('Experience is required'),
-  currentSalary: Yup.string().required('Current salary is required'),
-  preferredSalary: Yup.string().required('Preferred salary is required'),
-  preferredLocations: Yup.array().min(1, 'At least one location is required'),
-  selectedRoles: Yup.array().min(1, 'At least one role is required'),
-  jobType: Yup.array().min(1, 'At least one job type is required'),
-  cvFile: Yup.mixed().required('CV is required'),
+  firstName: Yup.string().required(Label.firstNameCVReq),
+  lastName: Yup.string().required(Label.lastNameCVReq),
+  email: Yup.string().email(Label.invalidEmail).required(Label.emailCVReq),
+  mobileNumber: Yup.string().required(Label.mobileNumberCVReq),
+  address: Yup.string().required(Label.addressCVReq),
+  city: Yup.string().required(Label.cityCVReq),
+  postCode: Yup.string().required(Label.postCodeCVReq),
+  totalExperience: Yup.string().required(Label.totalExperienceCVReq),
+  currentSalary: Yup.string().required(Label.currentSalaryCVReq),
+  preferredSalary: Yup.string().required(Label.preferredSalaryCVReq),
+  preferredLocations: Yup.array().min(1, Label.preferredLocationsCVReq),
+  selectedRoles: Yup.array().min(1, Label.selectedRolesCVReq),
+  jobType: Yup.array().min(1, Label.jobTypeCVReq),
+  cvFile: Yup.mixed().required(Label.cvFileCVReq),
 });
+
 
 const CVLive = () => {
   const [cvFile, setCvFile] = useState(null);
@@ -62,9 +58,8 @@ const CVLive = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={Styles.subContainer}>
         <ScrollView
-          // showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{paddingBottom: 50}}>
+          contentContainerStyle={{ paddingBottom: 25 }}>
           <View>
             <Formik
               initialValues={{
@@ -87,75 +82,75 @@ const CVLive = () => {
               onSubmit={values => {
                 console.log('Form Data:', values);
               }}>
-              {({values, handleChange, handleSubmit, errors, touched}) => (
+              {({ values, handleChange, handleSubmit, errors, touched }) => (
                 <>
                   <Input
-                    placeholder={Label.firstName}
+                    placeholder={Label.firstNameCV}
                     value={values.firstName}
                     onChange={handleChange('firstName')}
                     error={touched.firstName && errors.firstName}
                   />
                   <Input
-                    placeholder={Label.lastName}
+                    placeholder={Label.lastNameCV}
                     value={values.lastName}
                     onChange={handleChange('lastName')}
                     error={touched.lastName && errors.lastName}
                   />
                   <Input
-                    placeholder={Label.email}
+                    placeholder={Label.emailCV}
                     value={values.email}
                     onChange={handleChange('email')}
                     error={touched.email && errors.email}
                     keyboardType="email-address"
                   />
                   <Input
-                    placeholder={Label.mobileNumber}
+                    placeholder={Label.mobileNumberCV}
                     value={values.mobileNumber}
                     onChange={handleChange('mobileNumber')}
                     error={touched.mobileNumber && errors.mobileNumber}
                     keyboardType="phone-pad"
                   />
                   <Input
-                    placeholder={Label.address}
+                    placeholder={Label.addressCV}
                     value={values.address}
                     onChange={handleChange('address')}
                     error={touched.address && errors.address}
                   />
                   <Input
-                    placeholder={Label.city}
+                    placeholder={Label.cityCV}
                     value={values.city}
                     onChange={handleChange('city')}
                     error={touched.city && errors.city}
                   />
                   <Input
-                    placeholder={Label.postCode}
+                    placeholder={Label.postCodeCV}
                     value={values.postCode}
                     onChange={handleChange('postCode')}
                     error={touched.postCode && errors.postCode}
                   />
                   <Input
-                    placeholder={Label.totalExperience}
+                    placeholder={Label.totalExperienceCV}
                     value={values.totalExperience}
                     onChange={handleChange('totalExperience')}
                     error={touched.totalExperience && errors.totalExperience}
                     keyboardType="numeric"
                   />
                   <SingleSelect
-                    placeholder="Current Salary"
+                    placeholder={Label.currentSalaryCV}
                     data={salaryData}
                   />
                   <SingleSelect
-                    placeholder="Preferred Salary"
+                    placeholder={Label.preferredSalaryCV}
                     data={salaryData}
                   />
-                  <MultiSelect placeholder="Preferred location" />
-                  <MultiSelect placeholder="Select roles" />
-                  <MultiSelect placeholder="Job type" />
+                  <MultiSelect placeholder={Label.preferredLocationsCV} />
+                  <MultiSelect placeholder={Label.selectedRolesCV} />
+                  <MultiSelect placeholder={Label.jobTypeCV} />
 
                   {/* CV Upload Button */}
                   <Button
                     additionalStyle={Styles.btnStyle}
-                    text={cvFile ? 'CV Uploaded' : 'Upload CV'}
+                    text={cvFile ? Label.cvUploaded : Label.cvFileCV}
                     onPress={() => handleSubmit()}
                   />
 

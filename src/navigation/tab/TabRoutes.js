@@ -1,10 +1,9 @@
-import PostShift from '../../screens/business/jobCreate/jobCreateForms/postShift';
-import CVLive from '../../screens/cvLive/cvLive';
+import ShiftsScreen from '../../screens/business/jobCreate/shiftScreen';
 
 
 export const tabRoutes = [
   {
-    name: 'PostShift',
-    component: PostShift,
+    name: 'ShiftsScreen',
+    component: ShiftsScreen,
   },
 ];

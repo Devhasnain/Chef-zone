@@ -1,13 +1,15 @@
 import { StyleSheet } from "react-native";
 
 import colors from "../../config/Colors";
+import fonts from "../../config/Fonts";
 
 
 // Styles
 const styles = StyleSheet.create({
     container: {
       backgroundColor: colors.bgSecondary,
-      padding: 15,
+      paddingHorizontal: 20,
+      fontFamily:fonts.poppinsRegular
     },
     titleContainer: {
       padding: 10,

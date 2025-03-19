@@ -1,10 +1,11 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 import { navigate } from "../../navigation/NavigationService";
-import styles from "./agreeTermsAndPolicy.style";
+import styles from "./AgreeTermsAndPolicy.style";
 import colors from "../../config/Colors";
+import Label from "../../config/Label";
 
 
 const AgreeTermsAndPolicy = () => {
@@ -29,23 +30,23 @@ const AgreeTermsAndPolicy = () => {
                 />
             </TouchableOpacity>
             <Text style={styles.termsText}>
-                I agree to the{" "}
+                {Label.iAgreeToThe} {" "}
                 <Text
                     style={styles.termsLink}
                     onPress={() => handleNavigate("TermsAndConditions")}
                 >
-                    Terms and Conditions
+                    {Label.termsAndConditions}
                 </Text>{" "}
-                and{" "}
+                {Label.and} {" "}
                 <Text
                     style={styles.termsLink}
                     onPress={() => handleNavigate("PrivacyPolicy")}
                 >
-                    Privacy Policy
+                    {Label.privacyPolicy}
                 </Text>
             </Text>
         </View>
     );
 };
 
-export default AgreeTermsAndPolicy;
+export default memo(AgreeTermsAndPolicy);

@@ -1,6 +1,6 @@
 import { View, ScrollView, Text, TouchableOpacity } from 'react-native';
 import Icon from "react-native-vector-icons/FontAwesome";
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import { statements } from '../../../../constants/constant';
 import { sixthFormStyle as styles } from "./allForm.style";
@@ -24,7 +24,7 @@ const SixthForm = () => {
                 </Text>
             ))}
             <View style={styles.rowWrap}>
-                <Text style={styles.optionText}>{`${item.title} applies to me`}</Text>
+                <Text style={styles.optionText}>{`${item.title} ${Label.appliesToMe}`}</Text>
                 <TouchableOpacity onPress={() => setStatement(handleCheck(statement, item.title))}>
                     <View style={styles.checkbox(statement === item.title)}>
                         {statement === item.title && (
@@ -40,7 +40,7 @@ const SixthForm = () => {
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <Text style={styles.headerText}>{Label.employeeStatement}</Text>
-                <Text style={styles.greyText}>Choose the statement that applies to you, either A, B, or C, and tick the appropriate box.</Text>
+                <Text style={styles.greyText}>{Label.chooseStatement}</Text>
                 {statements.map(renderStatement)}
             </ScrollView>
         </View>
@@ -48,4 +48,4 @@ const SixthForm = () => {
 };
 
 
-export default SixthForm;
+export default memo(SixthForm);

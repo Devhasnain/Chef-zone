@@ -1,17 +1,18 @@
-import {ProgressSteps, ProgressStep} from 'react-native-progress-steps';
-import {View, Text, TouchableOpacity} from 'react-native';
+import { ProgressSteps, ProgressStep } from 'react-native-progress-steps';
+import { View } from 'react-native';
 
-import SeventhForm from './onBoardingForms/seventhForm';
-import SecondForm from './onBoardingForms/secondForm';
-import ForthForm from './onBoardingForms/fourthForm';
-import ThirdForm from './onBoardingForms/thirdForm';
-import SixthForm from './onBoardingForms/sixthForm';
-import NinthForm from './onBoardingForms/ninthForm';
-import FirstForm from './onBoardingForms/firstForm';
-import FifthForm from './onBoardingForms/fifthForm';
-import EightForm from './onBoardingForms/eightFrom';
+import SeventhForm from './onBoardingForms/SeventhForm';
+import SecondForm from './onBoardingForms/SecondForm';
+import ForthForm from './onBoardingForms/FourthForm';
+import ThirdForm from './onBoardingForms/ThirdForm';
+import SixthForm from './onBoardingForms/SixthForm';
+import NinthForm from './onBoardingForms/NinthForm';
+import FirstForm from './onBoardingForms/FirstForm';
+import FifthForm from './onBoardingForms/FifthForm';
+import EightForm from './onBoardingForms/EightFrom';
 import colors from '../../../config/Colors';
 import styles from './onBoarding.style';
+
 
 const SeekerOnBoarding = () => {
   const onNextStep = () => console.log('Next Step');

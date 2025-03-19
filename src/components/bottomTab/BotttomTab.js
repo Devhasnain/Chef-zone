@@ -3,17 +3,17 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { memo } from 'react';
 
-import labels from '../../assets/labels/English.labels';
 import colors from '../../config/Colors';
 import styles from './BotttomTab.style';
+import Label from '../../config/Label';
 
 
 const BottomTab = ({ state, navigation }) => {
   const tabs = [
-    { name: 'Shifts', icon: 'calendar' },
-    { name: 'Messages', icon: 'envelope' },
-    { name: 'Notification', icon: 'bell' },
-    { name: 'Profile', icon: 'user' },
+    { name: Label.shifts, icon: 'calendar' },
+    { name: Label.messages, icon: 'envelope' },
+    { name: Label.notification, icon: 'bell' },
+    { name: Label.profile, icon: 'user' },
   ];
   const {bottom} = useSafeAreaInsets()
 

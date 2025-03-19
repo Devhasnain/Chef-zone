@@ -1,12 +1,13 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 
 import { policies, videoBannerContent } from '../../../../constants/constant';
-import { VideoBanner } from '../../../../components/videoBanner/videoBanner';
+import { VideoBanner } from '../../../../components/videoBanner/VideoBanner';
 import { seventhFormStyle as styles } from "./allForm.style";
-import Title from '../../../../components/title/title';
+import Title from '../../../../components/title/Title';
 import colors from '../../../../config/Colors';
+import Label from '../../../../config/Label';
 
 
 const SeventhForm = () => {
@@ -22,7 +23,7 @@ const SeventhForm = () => {
 
   return (
     <View style={styles.container}>
-      <Title heading={'Conditional shift offer agreements'} paragraph={'Please review and agree to the following'} />
+      <Title heading={Label.conditionalShiftAgree} paragraph={Label.reviewAgree} />
       <View style={styles.policyContainer}>
         {policies.map((policy) => (
           <TouchableOpacity
@@ -54,7 +55,7 @@ const SeventhForm = () => {
         ))}
       </View>
 
-      <Title heading={'Conditional shift offer agreements'} />
+      <Title heading={Label.conditionalShiftAgree} />
       {videoBannerContent.map((item, index) => (
         <View key={index}>
           <VideoBanner poster={item.image} name={item.name} />
@@ -66,4 +67,4 @@ const SeventhForm = () => {
 
 
 
-export default SeventhForm;
+export default memo(SeventhForm);

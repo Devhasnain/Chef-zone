@@ -8,7 +8,7 @@ import HaveAnAccount from '../../components/haveAnAccount/HaveAnAccount';
 import { keyboardTypes } from '../../constants/KeyboardTypes.constants';
 import { navigate } from '../../navigation/NavigationService';
 import Button from '../../components/button/Button';
-import Title from '../../components/title/title';
+import Title from '../../components/title/Title';
 import Input from '../../components/input/Input';
 import { images } from '../../config/Images';
 import Label from '../../config/Label';
@@ -22,13 +22,13 @@ const SignUp = () => {
 
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Email is required'),
+    email: Yup.string().email(Label.invalidEmailSignUpReq).required(Label.emailSignUpReq),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
-      .required('Password is required'),
+      .min(6, Label.passwordMustBeSignUpReq)
+      .required(Label.passwordSignUpReq),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password'), null], 'Passwords must match')
-      .required('Confirm Password is required'),
+      .oneOf([Yup.ref(Label.password), null], Label.passwordMatchSignUpReq)
+      .required(Label.confirmPasswordSignUpReq),
   });
 
   const handleSignUp = values => {

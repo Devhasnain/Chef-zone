@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import colors from '../../config/Colors';
+
 
 const Styles = StyleSheet.create({
   container: {
@@ -8,13 +9,12 @@ const Styles = StyleSheet.create({
     backgroundColor: colors.secondary,
   },
   subContainer: {
-    padding: 20,
+    paddingHorizontal: 20,
     flex: 1,
   },
   logo: {
     width: '70%',
     resizeMode: 'contain',
-    backgroundColor: 'yellow',
   },
   cvUpload: {
     marginVertical: 10,

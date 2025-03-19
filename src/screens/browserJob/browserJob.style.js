@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.secondary,
-        // paddingHorizontal: 15,
     },
     textNotFound: {
         textAlign: "center",
@@ -20,6 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         marginBottom: 10,
+        marginHorizontal:20
     },
     filterButton: {
         width: 30,

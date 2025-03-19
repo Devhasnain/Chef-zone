@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import React, { memo } from 'react';
 
-import styles from './title.style';
+import styles from './Title.style';
 
 
 const Title = ({heading, paragraph, additionalStyle}) => {

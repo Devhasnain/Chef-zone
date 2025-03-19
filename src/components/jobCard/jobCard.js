@@ -1,37 +1,36 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native';
-import React, {memo} from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { memo } from 'react';
 
-import styles from './jobCard.style';
-import {navigate} from '../../navigation/NavigationService';
+import { navigate } from '../../navigation/NavigationService';
+import styles from './JobCard.style';
 
-const JobCard = ({jobData}) => {
+
+const JobCard = ({jobItem}) => {
   // use destructuring
-  const {} = jobData || {};
+  const {date, image, title, subTitle, location, postalCode, jobType, timeAgo, salary, hour} = jobItem || {};
 
   //Main Return
   return (
     <TouchableOpacity style={styles.card} onPress={() => navigate('JobDetail')}>
-      {/* <View> */}
-      <Text style={styles.date}>{jobData.date}</Text>
-      {/* </View> */}
+      <Text style={styles.date}>{date}</Text>
       <View style={styles.body}>
-        <Image source={jobData.image} style={styles.logo} />
+        <Image source={image} style={styles.logo} />
         <View>
-          <Text style={styles.title}>{jobData.title}</Text>
-          <Text style={styles.subTitle}>{jobData.subTitle}</Text>
-          <Text style={styles.subTitle}>({jobData.location})</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subTitle}>{subTitle}</Text>
+          <Text style={styles.subTitle}>({location})</Text>
           <View style={styles.locationRow}></View>
         </View>
       </View>
       <View style={styles.footer}>
         <View>
-          <Text style={styles.location}>{jobData.postalCode}</Text>
-          <Text style={styles.badgeText}>{jobData.badgeText}</Text>
+          <Text style={styles.location}>{postalCode}</Text>
+          <Text style={styles.jobType}>{jobType}</Text>
         </View>
         <View>
-          <Text style={styles.timeAgo}>{jobData.timeAgo}</Text>
+          <Text style={styles.timeAgo}>{timeAgo}</Text>
           <Text style={styles.salary}>
-            {jobData.salary} <Text style={styles.hour}>{jobData.hour}</Text>
+            {salary} <Text style={styles.hour}>{hour}</Text>
           </Text>
         </View>
       </View>

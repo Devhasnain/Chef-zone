@@ -2,7 +2,7 @@ import { Linking, View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useRef } from 'react';
 
-import Header from '../../components/header/header';
+import Header from '../../components/header/Header';
 import styles from './termsAndConditions.style';
 
 

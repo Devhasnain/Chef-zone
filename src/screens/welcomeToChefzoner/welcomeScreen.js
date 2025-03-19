@@ -28,7 +28,7 @@ const WelcomeScreen = () => {
         <Image source={images.signInImg} style={styles.logo} />
       </View>
       <Text style={styles.welcomeText}>{Label.welcomeScreenHeader}</Text>
-      <Text style={styles.title}>{Label.brandName}</Text>
+      <Text style={styles.title}>{Label.brandNameChefZone}</Text>
       <View style={styles.buttonContainer}>
         {buttonsData.map((button, index) => (
           <Button

@@ -1,16 +1,17 @@
 import { View } from "react-native";
+import { memo } from "react";
 
-import AgreeTermsAndPolicy from "../../../../components/agreeTermsAndPolicy/agreeTermsAndPolicy";
-import SingleSelector from "../../../../components/singleSelector/singleSelector";
-import { fifthFormStyle as styles } from "./allForm.style";
-import Title from "../../../../components/title/title";
+import AgreeTermsAndPolicy from "../../../../components/agreeTermsAndPolicy/AgreeTermsAndPolicy";
+import SingleSelector from "../../../../components/singleSelector/SingleSelector";
+import Title from "../../../../components/title/Title";
 import Input from "../../../../components/input/Input";
+import Label from "../../../../config/Label";
 
 
 const securityQuestions = [
-    { label: "What is your mother's maiden name?", value: "100" },
-    { label: "What was your first pet's name?", value: "200" },
-    { label: "What city were you born in?", value: "300" }
+    { label: Label.securityQues1, value: Label.securityQues1 },
+    { label: Label.securityQues2, value: Label.securityQues2 },
+    { label: Label.securityQues3, value: Label.securityQues3 }
 ]
 
 
@@ -19,23 +20,22 @@ const FifthForm = () => {
     return (
         <View>
             <Title
-                heading={"Signature of employee"}
-                paragraph={"Signature form including name, date and security question"}
+                heading={Label.signOfEmployee}
+                paragraph={Label.paragraphy}
             />
 
-            <Input placeholder="First name" />
-            <Input placeholder="Last name" />
-            <Input placeholder="Date of birth" />
+            <Input placeholder={Label.firstName} />
+            <Input placeholder={Label.lastName} />
+            <Input placeholder={Label.dob} />
             <SingleSelector
-                placeholder="Security Question"
+                placeholder={Label.SecurityQues}
                 data={securityQuestions}
             />
-            <Input placeholder="Your security answer" />
+            <Input placeholder={Label.yourAnswer} />
 
-            {/* Custom Checkbox with FontAwesome */}
             <AgreeTermsAndPolicy />
         </View>
     );
 };
 
-export default FifthForm;
+export default memo(FifthForm);

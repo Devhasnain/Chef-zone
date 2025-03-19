@@ -1,8 +1,8 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 import React, { memo } from "react";
 
 import { behaviours, benefits, qualifications, roles, shifts } from "../../constants/constant";
-import styles from "./jobDetailScreen.style";
+import styles from "./JobDetailScreen.style";
 import { images } from "../../config/Images";
 import Button from "../button/Button";
 
@@ -11,7 +11,7 @@ const JobDetailScreen = () => {
 
 
   return (
-    <View style={styles.container}>
+    <ScrollView showsHorizontalScrollIndicator={false} style={styles.container} contentContainerStyle={{paddingVertical:25}}>
       {/* Event Details */}
       <View style={styles.header}>
         <View style={styles.titleContainer}>
@@ -140,9 +140,9 @@ const JobDetailScreen = () => {
         <Text style={styles.jobDetailHeading}>Location:</Text>
       </View>
 
-      <Button text="Apply"/>
+      <Button text="Apply" />
 
-    </View>
+    </ScrollView>
   );
 };
 

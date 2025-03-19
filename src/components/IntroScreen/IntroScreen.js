@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { memo } from 'react';
 import { Text } from '@rneui/base';
 
-import Styles from './intro.style';
+import Styles from './IntroScreen.style';
 
 
 ///======== IntroScreen.js =========///

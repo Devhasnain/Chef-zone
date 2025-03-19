@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Modal, FlatList, } from "react
 import React, { memo, useState } from "react";
 
 import { data } from "../../constants/constant";
-import styles from "./multiSelector.style"; // Import styles
+import styles from "./MultiSelector.style"; // Import styles
 import Button from "../button/Button";
 import Input from "../input/Input";
 

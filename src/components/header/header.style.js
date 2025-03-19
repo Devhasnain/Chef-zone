@@ -1,11 +1,11 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import colors from '../../config/Colors';
+
 
 const Styles = StyleSheet.create({
   container: {
     backgroundColor: colors.secondary,
-    backgroundColor: 'red',
     paddingBottom: 0,
   },
   backText: {
