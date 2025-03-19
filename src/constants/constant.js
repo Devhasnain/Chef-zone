@@ -86,7 +86,7 @@ export const data = [
   ];
 
   
- export const jobDataDemo = [
+export const jobDataDemo = [
   {
     date: '30-06-2025 - 14 shifts',
     title: 'Kitchen porter',
@@ -122,6 +122,45 @@ export const data = [
     jobType: 'Full-time',
     timeAgo: '2 d ago',
     salary: '£18.50',
+    hour: '/hour',
+    image: images.splashImg,
+    type: 'Temporary'
+  },
+  {
+    date: '10-09-2025 - 5 shifts',
+    title: 'Bartender',
+    subTitle: 'Corporate Gala',
+    location: 'Edinburgh',
+    postalCode: 'EH12NG',
+    jobType: 'Temporary',
+    timeAgo: '1 d ago',
+    salary: '£12.00',
+    hour: '/hour',
+    image: images.splashImg,
+    type: 'Temporary'
+  },
+  {
+    date: '20-09-2025 - 8 shifts',
+    title: 'Chef de Partie',
+    subTitle: 'Food Festival',
+    location: 'Glasgow',
+    postalCode: 'G12TH',
+    jobType: 'Part-time',
+    timeAgo: '5 d ago',
+    salary: '£22.00',
+    hour: '/hour',
+    image: images.splashImg,
+    type: 'Permanent'
+  },
+  {
+    date: '05-10-2025 - 12 shifts',
+    title: 'Waiter',
+    subTitle: 'Wedding Reception',
+    location: 'Liverpool',
+    postalCode: 'L12AB',
+    jobType: 'Temporary',
+    timeAgo: '2 w ago',
+    salary: '£10.50',
     hour: '/hour',
     image: images.splashImg,
     type: 'Temporary'
@@ -171,6 +210,54 @@ export const rolesData = [
   { id: 40, name: "Till Operator", icon: images.tillOperator },
   { id: 41, name: "Waiter", icon: images.waiter },
   { id: 42, name: "Waiting Staff", icon: images.waitingStaff },
+];
+
+export const frontOfHouseRoles = [
+  { id: 2, name: "Bar back", icon: images.barBack },
+  { id: 3, name: "Barista", icon: images.barista },
+  { id: 4, name: "Bartender", icon: images.bartender },
+  { id: 5, name: "Cashier", icon: images.supervisor },
+  { id: 7, name: "Chef de rang", icon: images.chefDeRang },
+  { id: 8, name: "Cloak room", icon: images.cloakRoom },
+  { id: 11, name: "Concierge", icon: images.concierge },
+  { id: 13, name: "Festival", icon: images.festival },
+  { id: 18, name: "Host/ess", icon: images.hostEss },
+  { id: 19, name: "Hotel Porter", icon: images.hotelPorter },
+  { id: 24, name: "Manager", icon: images.manager },
+  { id: 31, name: "Receptionist", icon: images.receptionist },
+  { id: 32, name: "Runner", icon: images.runner },
+  { id: 33, name: "Security", icon: images.security },
+  { id: 36, name: "Sommelier", icon: images.sommelier },
+  { id: 38, name: "Supervisor", icon: images.supervisor },
+  { id: 39, name: "Team Leader", icon: images.teamLeader },
+  { id: 40, name: "Till Operator", icon: images.tillOperator },
+  { id: 41, name: "Waiter", icon: images.waiter },
+  { id: 42, name: "Waiting Staff", icon: images.waitingStaff },
+];
+
+export const backOfHouseRoles = [
+  { id: 1, name: "Banqueting staff", icon: images.banquetingStaff },
+  { id: 6, name: "Chef de partie", icon: images.chefDePartie },
+  { id: 9, name: "Commis Chef", icon: images.commisChef },
+  { id: 10, name: "Commis Waiter", icon: images.commisWaiter },
+  { id: 12, name: "Executive Chef", icon: images.executiveChef },
+  { id: 14, name: "Food Prep", icon: images.foodPrep },
+  { id: 15, name: "General Staff", icon: images.generalStaff },
+  { id: 16, name: "Head Chef", icon: images.headChef },
+  { id: 17, name: "Head Pastry Chef", icon: images.headPastryChef },
+  { id: 20, name: "House Keeper", icon: images.houseKeeper },
+  { id: 21, name: "Junior Sous Chef", icon: images.juniorSousChef },
+  { id: 22, name: "Kitchen Porter", icon: images.kitchenPorter },
+  { id: 23, name: "Lead Chef", icon: images.leadChef },
+  { id: 25, name: "Mixologist", icon: images.mixologist },
+  { id: 26, name: "Night Porter", icon: images.nightPorter },
+  { id: 27, name: "Pastry Chef", icon: images.pastryChef },
+  { id: 28, name: "Pizza Chef", icon: images.pizzaChef },
+  { id: 29, name: "Porter", icon: images.porter },
+  { id: 30, name: "Prep Chef", icon: images.prepChef },
+  { id: 34, name: "Senior Chef de Partie", icon: images.seniorChefDePartie },
+  { id: 35, name: "Senior Sous Chef", icon: images.seniorSousChef },
+  { id: 37, name: "Sous Chef", icon: images.sousChef },
 ];
 
 

@@ -1,5 +1,7 @@
 import { TermsAndConditions } from '../../screens/termsAndConditions/termsAndConditions';
 import CreateVenue from '../../screens/business/jobCreate/shiftCreateForms/createVenue';
+import PostShift from '../../screens/business/jobCreate/shiftCreateForms/postShift';
+import ViewRole from '../../screens/business/jobCreate/shiftCreateForms/viewRole';
 import WelcomeScreen from '../../screens/welcomeToChefzoner/welcomeScreen';
 import { PrivacyPolicy } from '../../screens/privacyPolicy/privacyPolicy';
 import BrowserJob from '../../screens/browserJob/browserJob';
@@ -43,7 +45,15 @@ export const appRoutes = [
     component: TermsAndConditions,
   },
   {
+    name: 'PostShift',
+    component: PostShift,
+  },
+  {
     name: 'CreateVenue',
     component: CreateVenue,
+  },
+  {
+    name: 'ViewRole',
+    component: ViewRole,
   },
 ];

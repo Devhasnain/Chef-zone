@@ -22,7 +22,7 @@ const Header = ({ title, image, style }) => {
       leftComponent={
         <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: "row", alignItems:"center" }}>
           <Icon name="arrow-left" size={15} color="black" />
-          <Text style={Styles.backText}>{Label.back}</Text>
+          <Text style={Styles.backText}></Text>
         </TouchableOpacity>
       }
       centerComponent={

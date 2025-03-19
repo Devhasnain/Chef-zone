@@ -65,7 +65,8 @@ const Label = {
     chooseOption: "Choose an option",
     takePhoto: "Take Photo",
     cancel: "Cancel",
-    Permanent: "Permanent",
+    review: "Review",
+    detail: "Details",
 
 
 

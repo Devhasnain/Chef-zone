@@ -17,12 +17,12 @@ const PostShift = () => {
     const [shift, setshift] = useState('');
     const [isEvent, setIsEvent] = useState(false);
     const handleNavigate = (screen) => {
-        navigate('AppStack', { screen: screen });
+        navigate(screen);
     }
     return (
         <View style={styles.mainContainer}>
             <Header />
-            
+
             <View style={styles.container}>
 
                 <Title heading={Label.postShift} />
@@ -44,7 +44,7 @@ const PostShift = () => {
                     <Text style={styles.switchText}>{Label.isThisAnEvent}</Text>
                 </View>
 
-                <Button text={Label.addRole} />
+                <Button text={Label.addRole} onPress={() => handleNavigate('ViewRole')}/>
             </View>
 
         </View>
