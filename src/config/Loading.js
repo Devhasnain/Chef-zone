@@ -1,5 +1,5 @@
 import Loading from 'react-native-loader-overlay';
-import Colors from '../config/Colors';
+import Colors from './Colors';
 
 class LoaderOverlay {
   show() {
