@@ -17,7 +17,7 @@ const Header = ({ title, image, style }) => {
       containerStyle={Styles.container}
       statusBarProps={{
         barStyle: 'dark-content',
-        backgroundColor: 'red',
+        backgroundColor: 'transparent',
       }}
       leftComponent={
         <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: "row", alignItems:"center" }}>

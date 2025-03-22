@@ -4,14 +4,13 @@ import colors from '../../config/Colors';
 
 
 export default StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: colors.bgSecondary,
-  },
   logo: {
-    width: "100%",
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
-    paddingnTop: 20,
+    marginTop: 50,
+    marginBottom: 30,
+    marginLeft: 20,
   },
   errorText: {
     color: 'red',
@@ -19,12 +18,13 @@ export default StyleSheet.create({
   },
   container: {
     paddingHorizontal: 20,
-    flex: 1,
-    backgroundColor: colors.bgSecondary,
   },
   forgotPassword: {
-    color: colors.accent,
+    color: colors.primary,
     fontWeight: 'bold',
     paddingVertical: 20,
+    textDecorationLine:'underline',
+    fontSize:16
   },
+  additionalStyle:{marginTop:20}
 });

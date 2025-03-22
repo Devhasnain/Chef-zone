@@ -44,7 +44,7 @@ const PostShift = () => {
                     <Text style={styles.switchText}>{Label.isThisAnEvent}</Text>
                 </View>
 
-                <Button text={Label.addRole} onPress={() => handleNavigate('ViewRole')}/>
+                <Button text={Label.addRole} onPress={() => handleNavigate('SelectRole')}/>
             </View>
 
         </View>

@@ -15,7 +15,7 @@ const Styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 16,
-    fontFamily: fonts.poppinsRegular,
+    fontFamily: fonts.poppinsBold,
     color: colors.secondary,
     textAlign: 'center',
   },

@@ -17,6 +17,7 @@ export const images = {
   videoImage4: require('../assets/images/video4.png'),
   videoImage5: require('../assets/images/video5.png'),
   linkClip: require('../assets/images/linkClip.png'),
+  background: require('../assets/images/background.png'),
 
   // Role-specific images
   banquetingStaff: require('../assets/images/banqueting-staff.png'),

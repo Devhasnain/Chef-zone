@@ -4,21 +4,20 @@ import colors from '../../config/Colors';
 
 
 export default StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: colors.bgSecondary,
-  },
   logo: {
-    width: '100%',
+    width: 120,
+    height: 120,
     resizeMode: 'contain',
+    marginTop: 50,
+    marginBottom: 30,
+    marginLeft: 20,
   },
   errorText: {
     color: 'red',
-    paddingBottom: 10,
+    paddingnBottom: 10,
   },
   container: {
     paddingHorizontal: 20,
-    flex: 1,
-    backgroundColor: colors.bgSecondary,
   },
+  btnadditionalStyle:{ width: '100%', marginTop: 20 }
 });
