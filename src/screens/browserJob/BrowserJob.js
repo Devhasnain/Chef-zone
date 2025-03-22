@@ -26,11 +26,13 @@ const BrowserJob = () => {
 
   const handleSearch = query => {
     setSearchQuery(query);
-    filterJobs({...filterValues, searchQuery: query});
+    filterJobs({ ...filterValues, searchQuery: query });
   };
 
+  const { bottom } = useSafeAreaInsets();
+
   const filterJobs = filters => {
-    const {shiftType, city, shiftRole, minRate, maxRate, searchQuery} = filters;
+    const { shiftType, city, shiftRole, minRate, maxRate, searchQuery } = filters;
     const filtered = jobDataDemo.filter(job => {
       return (
         (!searchQuery ||
@@ -69,7 +71,7 @@ const BrowserJob = () => {
   //   }
   // };
 
-  const renderJobCard = useCallback(({item}) => {
+  const renderJobCard = useCallback(({ item }) => {
     return <JobCard jobItem={item} />;
   }, []);
 
@@ -92,7 +94,7 @@ const BrowserJob = () => {
 
       {filteredJobs.length > 0 ? (
         <FlatList
-          contentContainerStyle={{paddingHorizontal: 20}}
+          contentContainerStyle={{ paddingHorizontal: 20, paddingBottom:bottom }}
           data={filteredJobs}
           keyExtractor={(_, index) => index.toString()}
           renderItem={renderJobCard}

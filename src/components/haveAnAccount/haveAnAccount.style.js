@@ -7,8 +7,6 @@ import fonts from '../../config/Fonts';
 const Styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     columnGap: 3,
     marginTop: 14,
   },

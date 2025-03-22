@@ -5,7 +5,7 @@ import Styles from './haveAnAccount.style';
 import colors from '../../config/Colors';
 
 
-const HaveAnAccount = ({text1 = '', text2 = '', onPress = () => {}}) => {
+const HaveAnAccount = ({ text1 = '', text2 = '', onPress = () => { } }) => {
   const pressAction = useCallback(() => {
     onPress();
   }, [onPress]);

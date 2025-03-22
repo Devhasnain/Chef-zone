@@ -9,20 +9,29 @@ export default StyleSheet.create({
     flex: 1,
     fontFamily: fonts.poppinsRegular,
     alignItems: 'center',
-    backgroundColor: colors.bgPrimary,
+    backgroundColor: colors.bgSecondary,
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
   },
   header: {
     width: '100%',
     alignItems: 'center',
+    paddingTop: 120,
+    paddingBottom: 80
   },
   logo: {
-    width: "100%",
-    marginTop: 20,
-    resizeMode: 'contain',
+    width: 120,
+    height: 120,
   },
   welcomeText: {
-    fontSize: 30,
-    color: colors.secondary,
+    fontSize: 20,
+    color: colors.accentLight,
+    paddingBottom: 15,
+    fontFamily: fonts.poppinsRegular
   },
   title: {
     fontSize: 50,
@@ -32,6 +41,8 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    paddingHorizontal: 20,
+    paddingHorizontal: 40,
   },
+  additionalTestStyle: { color: button.screen === "BrowserJob" ? colors.secondary : colors.accentLight },
+  additionalStyle: { marginBottom: 15, backgroundColor: button.screen === "BrowserJob" ? colors.bgPrimary : colors.bgSecondary, borderWidth: 1, borderColor: "#ccc" },
 });

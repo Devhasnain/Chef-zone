@@ -1,7 +1,7 @@
 import { TermsAndConditions } from '../../screens/termsAndConditions/TermsAndConditions';
 import CreateVenue from '../../screens/business/jobCreate/shiftCreateForms/CreateVenue';
+import SelectRole from '../../screens/business/jobCreate/shiftCreateForms/SelectRole';
 import PostShift from '../../screens/business/jobCreate/shiftCreateForms/PostShift';
-import ViewRole from '../../screens/business/jobCreate/shiftCreateForms/ViewRole';
 import WelcomeScreen from '../../screens/welcomeToChefzoner/WelcomeScreen';
 import { PrivacyPolicy } from '../../screens/privacyPolicy/PrivacyPolicy';
 import BrowserJob from '../../screens/browserJob/BrowserJob';
@@ -53,7 +53,7 @@ export const appRoutes = [
     component: CreateVenue,
   },
   {
-    name: 'ViewRole',
-    component: ViewRole,
+    name: 'SelectRole',
+    component: SelectRole,
   },
 ];

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
+import BgImageContainer from '../../components/bgImageContainer/bgImageContainer';
 import HaveAnAccount from '../../components/haveAnAccount/HaveAnAccount';
 import { keyboardTypes } from '../../constants/KeyboardTypes.constants';
 import { navigate } from '../../navigation/NavigationService';
@@ -41,77 +42,80 @@ const SignUp = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.mainContainer}>
-      <ScrollView bounces={false} style={{ paddingTop: top }}>
-        {/* Logo */}
-        <Image source={images.signInImg} style={styles.logo} />
+    <BgImageContainer>
 
-        <View style={styles.container}>
-          {/* Sign In Text */}
-          <Title heading={Label.signUp} paragraph={Label.signUpPara} />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+        <ScrollView bounces={false} style={{ paddingTop: top }}>
+          {/* Logo */}
+          <Image source={images.splashImg} style={styles.logo} />
 
-          <Formik
-            initialValues={dataField}
-            validationSchema={validationSchema}
-            onSubmit={handleSignUp}>
-            {({
-              handleChange,
-              handleSubmit,
-              values,
-              errors,
-              touched,
-            }) => (
-              <>
-                {/* Email Input */}
-                <Input
-                  placeholder={Label.email}
-                  value={values.email}
-                  onChange={handleChange('email')}
-                  keyboardType={keyboardTypes.emailAddress}
-                  error={touched.email && errors.email}
-                />
+          <View style={styles.container}>
+            {/* Sign In Text */}
+            <Title heading={Label.signUp} paragraph={Label.signUpPara} />
 
-                {/* Password Input */}
-                <Input
-                  placeholder={Label.password}
-                  onFocus={() => setPasswordVisible(true)}
-                  secureTextEntry={!passwordVisible}
-                  value={values.password}
-                  onChange={handleChange('password')}
-                  error={touched.password && errors.password}
-                />
+            <Formik
+              initialValues={dataField}
+              validationSchema={validationSchema}
+              onSubmit={handleSignUp}>
+              {({
+                handleChange,
+                handleSubmit,
+                values,
+                errors,
+                touched,
+              }) => (
+                <>
+                  {/* Email Input */}
+                  <Input
+                    placeholder={Label.email}
+                    value={values.email}
+                    onChange={handleChange('email')}
+                    keyboardType={keyboardTypes.emailAddress}
+                    error={touched.email && errors.email}
+                  />
 
-                {/* Confirm Password Input */}
-                <Input
-                  placeholder={Label.comfirmPassword}
-                  onFocus={() => setPasswordVisible(true)}
-                  secureTextEntry={!passwordVisible}
-                  value={values.confirmPassword}
-                  onChange={handleChange('confirmPassword')}
-                  error={touched.confirmPassword && errors.confirmPassword}
-                />
+                  {/* Password Input */}
+                  <Input
+                    placeholder={Label.password}
+                    onFocus={() => setPasswordVisible(true)}
+                    secureTextEntry={!passwordVisible}
+                    value={values.password}
+                    onChange={handleChange('password')}
+                    error={touched.password && errors.password}
+                  />
 
-                <Button
-                  additionalStyle={{ width: '100%', marginTop: 20 }}
-                  text={Label.signUp}
-                  onPress={() => {
-                    handleSubmit();
-                    navigate('SeekerOnBoarding');
-                  }}
-                />
-              </>
-            )}
-          </Formik>
+                  {/* Confirm Password Input */}
+                  <Input
+                    placeholder={Label.comfirmPassword}
+                    onFocus={() => setPasswordVisible(true)}
+                    secureTextEntry={!passwordVisible}
+                    value={values.confirmPassword}
+                    onChange={handleChange('confirmPassword')}
+                    error={touched.confirmPassword && errors.confirmPassword}
+                  />
 
-          <HaveAnAccount
-            text1={Label.alreadyHaveAnAccount}
-            text2={Label.signIn}
-            onPress={() => handleNavigation('SignIn')}
-          />
-        </View>
-      </ScrollView>
-    </KeyboardAvoidingView>
+                  <Button
+                    additionalStyle={styles.btnadditionalStyle}
+                    text={Label.signUp}
+                    onPress={() => {
+                      handleSubmit();
+                      navigate('SeekerOnBoarding');
+                    }}
+                  />
+                </>
+              )}
+            </Formik>
+
+            <HaveAnAccount
+              text1={Label.alreadyHaveAnAccount}
+              text2={Label.signIn}
+              onPress={() => handleNavigation('SignIn')}
+            />
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    </BgImageContainer>
   );
 };
 

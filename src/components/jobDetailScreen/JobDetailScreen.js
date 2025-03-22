@@ -1,151 +1,93 @@
-import { View, Text, Image, ScrollView } from "react-native";
-import React, { memo } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import React from 'react';
 
-import { behaviours, benefits, qualifications, roles, shifts } from "../../constants/constant";
-import styles from "./jobDetailScreen.style";
-import { images } from "../../config/Images";
-import Button from "../button/Button";
+import { images } from '../../config/Images';
 
 
-const JobDetailScreen = () => {
-
-
+const WimbledonShiftCard = () => {
   return (
-    <ScrollView showsHorizontalScrollIndicator={false} style={styles.container} contentContainerStyle={{paddingVertical:25}}>
-      {/* Event Details */}
+    <View style={styles.container}>
+      {/* Header Section */}
       <View style={styles.header}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.eventTitle}>Wimbledon Tennis Championships</Text>
-          <Text style={styles.stars}>⭐⭐⭐⭐⭐</Text>
-        </View>
-      </View>
-
-      {/* Job Role Card */}
-      <View style={styles.jobCard}>
-        <Text style={styles.jobTitle}>Chef de partie</Text>
-        <View style={styles.jobCardItem}>
-          <View>
-            <Text style={styles.jobSubText}>Hourly rate (inc. holiday pay)</Text>
-            <Text style={styles.jobSubTextApprox}>Approximate salary</Text>
-          </View>
-          <View style={styles.salaryContainer}>
-            <Text style={styles.salaryText}>£ 20.17</Text>
-            <Text style={styles.approxSalary}>£ 3873.14</Text>
+        <Image
+          source={images.splashImg}
+          style={styles.logo}
+        />
+        <View style={styles.headerText}>
+          <Text style={styles.title}>Wimbledon Tennis Championship</Text>
+          <View style={styles.ratingContainer}>
+            <Icon name="star" size={16} color="#FFD700" />
+            <Text style={styles.rating}>4.9</Text>
+            <Text style={styles.daysAgo}>4d ago</Text>
           </View>
         </View>
       </View>
 
-      {/* Shift Dates List */}
-      <View>
-        {shifts.map((item, index) => (
-          <View key={index} style={styles.shiftItem}>
-            <Text style={styles.shiftText}>{item}</Text>
-          </View>
-        ))}
+      {/* Pay Details */}
+      <View style={styles.payContainer}>
+        <Text style={styles.rate}>Hourly Rate (inc. holiday pay)</Text>
+        <Text style={styles.salary}>£22</Text>
+        <Text style={styles.approxSalary}>Approximate Salary</Text>
+        <Text style={styles.salary}>£3873.55</Text>
       </View>
 
-      {/* Location */}
-      <View style={styles.locationContainer}>
-        <Text style={styles.locationText}>SW195AG, London, SW195AG</Text>
-      </View>
+      {/* Shift Date & Time */}
+      <Text style={styles.sectionHeader}>Shift Date & Time</Text>
+      <Text style={styles.location}>📍 SW195AG, London, SW195AG</Text>
+      {[...Array(4)].map((_, index) => (
+        <Text key={index} style={styles.shiftTime}>📅 30-06-2025  |  09:00 pm - 11:30 pm</Text>
+      ))}
 
       {/* Warning Message */}
-      <View style={styles.warningCard}>
-        <Text style={styles.warningText}>
-          This adviser has chosen not to accept applicants from outside the EU & UK.
-        </Text>
+      <View style={styles.warningContainer}>
+        <Icon name="exclamation-circle" size={18} color="#D32F2F" />
+        <Text style={styles.warning}>This advertiser has chosen not to accept applicants from outside the EU.</Text>
       </View>
 
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Event name</Text>
-        <Text style={styles.jobDetailPara}>Wimnledom Championships:</Text>
-      </View>
+      {/* Event Details */}
+      <Text style={styles.eventName}>Event Name: Wimbledon Championships</Text>
+      <Text style={styles.eventDescription}>Event Description: ATP world tour</Text>
 
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Event description:</Text>
-        <Text style={styles.jobDetailPara}>ATP world tour</Text>
-      </View>
+      {/* About Job Section */}
+      <Text style={styles.aboutJobHeader}>About Job</Text>
+      <Text style={styles.aboutJobText}>
+        We are searching for experienced chefs to join our wonderful team.
+        We supply clients all across London and beyond. Perfectly suited to anybody wanting excellent...
+      </Text>
 
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Shift type:</Text>
-        <Text style={styles.jobDetailPara}>Temporary</Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>About shift:</Text>
-        <Text style={styles.jobDetailPara}>Lead</Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailPara}>Smart transitions automatically add fades and other animations between scenes, giving your audience a silky smooth ride, and saving you all the time you’d spend adding that stuff yourself. Smart transitions automatically add fades and other animations between scenes, giving your audience a silky smooth ride, and saving you all the time you’d spend adding that stuff yourself.</Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>The benefits we offer you:</Text>
-        {benefits.map((item, index) => (
-          <View key={index} style={styles.benefitsContainer}>
-            <Text>✓ </Text>
-            <Text key={index} style={styles.benefitsText}>{item}</Text>
-          </View>
-        ))}
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Shift role:</Text>
-        <Text style={styles.jobDetailPara}>Chef de partie</Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Skills:</Text>
-        {roles.map((item, index) => (
-          <Text key={index} style={styles.jobDetailPara}>• {"   "} {item}</Text>
-        ))}
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Qualifications:</Text>
-        {qualifications.map((item, index) => (
-          <Text key={index} style={styles.jobDetailPara}>• {"   "} {item}</Text>
-        ))}
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Skills:</Text>
-        {behaviours.map((item, index) => (
-          <Text key={index} style={styles.jobDetailPara}>• {"   "} {item}</Text>
-        ))}
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Uniform:</Text>
-        <Image source={images.splashImg} style={{
-          width: 150,
-          height: 150,
-          marginVertical: 10
-        }} />
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>First aid facilities:</Text>
-        <Text style={styles.jobDetailPara}>Yes</Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>No of workers: <Text style={styles.jobDetailPara}>25</Text></Text>
-        <Text style={styles.jobDetailHeading}>Break paid: <Text style={styles.jobDetailPara}>Yes</Text></Text>
-        <Text style={styles.jobDetailHeading}>Break duration: <Text style={styles.jobDetailPara}>60 minutes</Text></Text>
-      </View>
-
-      <View style={styles.jobDetailContainer}>
-        <Text style={styles.jobDetailHeading}>Location:</Text>
-      </View>
-
-      <Button text="Apply" />
-
-    </ScrollView>
+      {/* Select Shift Button */}
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Select Shift</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: { padding: 20, backgroundColor: '#F9FAFB', borderRadius: 15, shadowColor: '#000', shadowOpacity: 0.1, shadowRadius: 5, margin: 10 },
+  header: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  logo: { width: 50, height: 50, borderRadius: 25, marginRight: 10 },
+  headerText: { flex: 1 },
+  title: { fontSize: 18, fontWeight: 'bold', color: '#1D4ED8' },
+  ratingContainer: { flexDirection: 'row', alignItems: 'center', marginTop: 4 },
+  rating: { fontSize: 14, color: '#555', marginLeft: 5 },
+  daysAgo: { fontSize: 12, color: '#888', marginLeft: 10 },
+  payContainer: { backgroundColor: '#E0F2FE', padding: 10, borderRadius: 10, marginVertical: 10 },
+  rate: { fontSize: 16, color: '#555' },
+  salary: { fontSize: 18, fontWeight: 'bold', color: '#1E293B' },
+  approxSalary: { fontSize: 14, color: '#555', marginBottom: 10 },
+  sectionHeader: { fontSize: 16, fontWeight: 'bold', color: '#1E293B', marginTop: 10 },
+  location: { fontSize: 14, color: '#64748B', marginBottom: 5 },
+  shiftTime: { fontSize: 14, color: '#555', marginBottom: 5 },
+  warningContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#FEE2E2', padding: 10, borderRadius: 5, marginBottom: 10 },
+  warning: { marginLeft: 10, color: '#B91C1C', fontSize: 14 },
+  eventName: { fontSize: 16, fontWeight: 'bold', marginBottom: 5 },
+  eventDescription: { fontSize: 14, color: '#555', marginBottom: 10 },
+  aboutJobHeader: { fontSize: 16, fontWeight: 'bold', marginBottom: 5 },
+  aboutJobText: { fontSize: 14, color: '#555', marginBottom: 20 },
+  button: { backgroundColor: '#1D4ED8', padding: 15, borderRadius: 10, alignItems: 'center', marginTop: 10 },
+  buttonText: { color: '#fff', fontWeight: 'bold', fontSize: 16 }
+});
 
-
-export default memo(JobDetailScreen);
+export default WimbledonShiftCard;

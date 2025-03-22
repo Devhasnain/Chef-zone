@@ -67,6 +67,8 @@ const Label = {
     cancel: "Cancel",
     review: "Review",
     detail: "Details",
+    noRolesAvail: "No roles available",
+    selectARole: "Select a Role",
 
 
 

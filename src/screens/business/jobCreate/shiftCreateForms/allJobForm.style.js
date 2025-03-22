@@ -87,3 +87,44 @@ export const createVenueStyles = StyleSheet.create({
     marginTop:10
   },
 })
+
+export const selectRolesStyles = StyleSheet.create({
+  container: {
+      flex: 1,
+      backgroundColor: "white",
+  },
+  contentWrapper: {
+      paddingHorizontal: 20,
+      paddingTop: 20,
+      flex: 1,
+  },
+  buttonRow: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingBottom: 10,
+  },
+  button: {
+      width: "48%",
+      borderWidth: 1,
+  },
+  activeButton: {
+      backgroundColor: colors.bgPrimary,
+      borderColor: 'transparent',
+  },
+  inactiveButton: {
+      backgroundColor: colors.bgSecondary,
+      borderColor: colors.bgAccent,
+  },
+  scrollContent: {
+      paddingBottom: 25,
+  },
+  title: {
+      fontSize: 18,
+      fontWeight: "bold",
+      marginVertical: 10,
+  },
+  continueButton: {
+      marginTop: 10,
+  },
+});
