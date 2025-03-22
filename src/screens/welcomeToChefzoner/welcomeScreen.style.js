@@ -1,8 +1,7 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import colors from '../../config/Colors';
 import fonts from '../../config/Fonts';
-
 
 export default StyleSheet.create({
   container: {
@@ -21,7 +20,7 @@ export default StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     paddingTop: 120,
-    paddingBottom: 80
+    paddingBottom: 80,
   },
   logo: {
     width: 120,
@@ -31,7 +30,7 @@ export default StyleSheet.create({
     fontSize: 20,
     color: colors.accentLight,
     paddingBottom: 15,
-    fontFamily: fonts.poppinsRegular
+    fontFamily: fonts.poppinsRegular,
   },
   title: {
     fontSize: 50,
@@ -43,6 +42,15 @@ export default StyleSheet.create({
     width: '100%',
     paddingHorizontal: 40,
   },
-  additionalTestStyle: { color: button.screen === "BrowserJob" ? colors.secondary : colors.accentLight },
-  additionalStyle: { marginBottom: 15, backgroundColor: button.screen === "BrowserJob" ? colors.bgPrimary : colors.bgSecondary, borderWidth: 1, borderColor: "#ccc" },
+  additionalTestStyle: {
+    // color:
+    //   button.screen === 'BrowserJob' ? colors.secondary : colors.accentLight,
+  },
+  additionalStyle: {
+    marginBottom: 15,
+    // backgroundColor:
+    //   button.screen === 'BrowserJob' ? colors.bgPrimary : colors.bgSecondary,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
 });

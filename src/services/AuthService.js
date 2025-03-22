@@ -1,19 +1,28 @@
-import baseApi from './api';
-
-
+import {Endpoints} from '../config/Endpoints';
+import baseApi, {apiMethods} from './api';
+// API methods
+const {post, patch, get} = apiMethods;
 const SignIn = body => {
   return {
     url: '/SignIn',
-    method: 'POST',
+    method: post,
     body,
   };
 };
-
+const getTestingData = () => {
+  return {
+    url: Endpoints.getTestingData,
+    method: get,
+  };
+};
 export const AuthService = baseApi.injectEndpoints({
   endpoints: builder => ({
-    SignIn: builder.mutation({query: SignIn}),
+    signIn: builder.mutation({query: SignIn}),
+    testGetApi: builder.query({
+      query: getTestingData,
+    }),
   }),
   overrideExisting: true,
 });
 
-export const {useSignInMutation} = AuthService;
+export const {useSignInMutation, useLazyTestGetApiQuery} = AuthService;

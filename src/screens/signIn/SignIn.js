@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 
@@ -24,13 +24,33 @@ import styles from './signIn.style';
 import useStoragePermission from '../../utils/useStoragePermission';
 import {pick} from '@react-native-documents/picker';
 import CameraCapture from '../../components/camera/CameraCapture';
+import {useLazyTestGetApiQuery} from '../../services/AuthService';
 
 const SignIn = () => {
+  // Consts
   const {top} = useSafeAreaInsets();
+
+  // API initialization
+  const [
+    getTestingData,
+    {data: testingdata, isLoading, isFetching, isSuccess, isError},
+  ] = useLazyTestGetApiQuery();
+
+  //States
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [openCamera, setOpenCamera] = useState(false);
   const dataField = {email: '', password: ''};
+  //useEffects
 
+  useEffect(() => {
+    getTestingData()?.unwrap();
+  }, []);
+  console.log(testingdata, 'jdsfjsdkfjsdkfjks');
+
+  testingdata?.fact && Alert.alert('API RESPONSE', testingdata.fact);
+  //FUNCTIONS
+
+  // function to validate the input fields
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email(Label.invalidEmailSignUpReq)
@@ -39,7 +59,7 @@ const SignIn = () => {
       .min(6, Label.passwordMustBeSignUpReq)
       .required(Label.passwordSignUpReq),
   });
-
+  //
   const handleSignIn = values => {
     console.log('Logging in with:', values.email, values.password);
   };
@@ -70,8 +90,7 @@ const SignIn = () => {
   return (
     <BgImageContainer>
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.mainContainer}>
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           bounces={false}

@@ -1,11 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
-import { navigationRef } from '../navigation/NavigationService';
-import { logout } from '../store/authSlice';
-
+import {navigationRef} from '../navigation/NavigationService';
+import {logout} from '../store/authSlice';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://www.google.com',
+  baseUrl: 'https://catfact.ninja/',
   prepareHeaders: (headers, {getState}) => {
     const token = getState()?.auth?.token;
     if (token) {
@@ -16,11 +15,13 @@ const baseQuery = fetchBaseQuery({
   },
 });
 const baseQueryWithReAuth = async (args, api, extraOptions) => {
+  console.log('Request:', args, api);
   let result = await baseQuery(args, api, extraOptions);
   if (result?.data?.status === 401) {
     navigationRef.current.navigate('AuthStack', {screen: 'SignIn'});
     api.dispatch(logout());
   }
+  return result;
 };
 
 const baseApi = createApi({
@@ -30,3 +31,11 @@ const baseApi = createApi({
 });
 
 export default baseApi;
+//Methods
+export const apiMethods = {
+  get: 'GET',
+  post: 'POST',
+  patch: 'PATCH',
+  put: 'PUT',
+  delete: 'DELETE',
+};
