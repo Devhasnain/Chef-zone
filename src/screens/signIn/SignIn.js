@@ -38,14 +38,13 @@ const SignIn = () => {
 
   //States
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [openCamera, setOpenCamera] = useState(false);
+
   const dataField = {email: '', password: ''};
   //useEffects
 
   useEffect(() => {
     getTestingData()?.unwrap();
   }, []);
-  console.log(testingdata, 'jdsfjsdkfjsdkfjks');
 
   testingdata?.fact && Alert.alert('API RESPONSE', testingdata.fact);
   //FUNCTIONS
@@ -80,13 +79,7 @@ const SignIn = () => {
       console.log(err, 'dkjsfdskjfksdjfk');
     }
   };
-  const handlePhotoTaken = uri => {
-    console.log('📸 Captured URI:', uri);
-    // Upload to server or set in state
-  };
-  const handleCapture = uri => {
-    console.log(uri, 'URL:CAPTUREDBYCAMERA');
-  };
+
   return (
     <BgImageContainer>
       <KeyboardAvoidingView
@@ -145,10 +138,8 @@ const SignIn = () => {
               text2={Label.signUp}
               onPress={() => {
                 handleNavigation('SignUp');
-                setOpenCamera(true);
               }}
             />
-            {openCamera && <CameraCapture onCapture={handleCapture} />}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
