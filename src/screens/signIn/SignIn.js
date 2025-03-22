@@ -22,7 +22,6 @@ import {images} from '../../config/Images';
 import Label from '../../config/Label';
 import styles from './signIn.style';
 import useStoragePermission from '../../utils/useStoragePermission';
-// import DocumentPicker from 'react-native-document-picker';
 import {pick} from '@react-native-documents/picker';
 import CameraCapture from '../../components/camera/CameraCapture';
 
@@ -64,6 +63,9 @@ const SignIn = () => {
   const handlePhotoTaken = uri => {
     console.log('📸 Captured URI:', uri);
     // Upload to server or set in state
+  };
+  const handleCapture = uri => {
+    console.log(uri, 'URL:CAPTUREDBYCAMERA');
   };
   return (
     <BgImageContainer>
@@ -122,8 +124,12 @@ const SignIn = () => {
             <HaveAnAccount
               text1={Label.dontHaveAnAccount}
               text2={Label.signUp}
-              onPress={() => handleNavigation('SignUp')}
+              onPress={() => {
+                handleNavigation('SignUp');
+                setOpenCamera(true);
+              }}
             />
+            {openCamera && <CameraCapture onCapture={handleCapture} />}
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
