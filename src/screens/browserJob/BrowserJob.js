@@ -1,18 +1,16 @@
-import { NativeDocumentPicker } from '@react-native-documents/picker/lib/typescript/spec/NativeDocumentPicker';
-import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native';
-import React, { useCallback, useState } from 'react';
+import {FlatList, Text, TouchableOpacity, View, Image} from 'react-native';
+import React, {useCallback, useState} from 'react';
 
 import BrowserJobFilterModal from '../../components/browserJobModal/BrowserJobModal';
 import useStoragePermission from '../../utils/useStoragePermission';
-import { navigate } from '../../navigation/NavigationService';
+import {navigate} from '../../navigation/NavigationService';
 import JobCard from '../../components/jobCard/JobCard';
-import { jobDataDemo } from '../../constants/constant';
+import {jobDataDemo} from '../../constants/constant';
 import Header from '../../components/header/Header';
 import Input from '../../components/input/Input';
-import { images } from '../../config/Images';
+import {images} from '../../config/Images';
 import styles from './browserJob.style';
 import Label from '../../config/Label';
-
 
 const BrowserJob = () => {
   const [searchQuery, setSearchQuery] = useState('');
