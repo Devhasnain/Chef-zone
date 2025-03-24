@@ -102,7 +102,7 @@ const BusinessOnBoarding = () => {
                                 <AgreeTermsAndPolicy />
                                 <Button text={Label.continue} onPress={() => {
                                     handleSubmit();
-                                    navigate('TabStack', { screen: '' });
+                                    navigate('DrawerStack', { screen: '' });
                                 }}
                                     additionalStyle={styles.btnMargin}
 

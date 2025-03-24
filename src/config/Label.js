@@ -253,6 +253,15 @@ const Label = {
     verifyID: "Verify ID",
     cv: "CV",
 
+    // ------------------------- Added by Hasnain
+    welcomeBack:"Welcome Back!",
+    guestUserName:"Rifat Sarkar",
+    searchInputPlaceholder:"Search a job or position",
+    popularShifts:"Popular Shifts",
+    mostRelevent:'Most Relevent',
+    profileWarning:"1 Strike Perform better to avoid suspension.",
+    seeAll:"See all",
+
 }
 
 export default Label;

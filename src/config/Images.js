@@ -61,4 +61,22 @@ export const images = {
   tillOperator: require('../assets/images/till-operator.png'),
   waiter: require('../assets/images/waiter.png'),
   waitingStaff: require('../assets/images/Waiting_staff.png'),
+
+
+  // Shifts Section Images 
+  profileBgVector:require("../assets/images/profile-bg.png"),
+  wavingHand:require("../assets/images/waving-hand.png"),
+
+
+  // Drawer Icons 
+  homeImage:require("../assets/images/home.png"),
+  notificationAlertImage:require("../assets/images/notification2.png"),
+  walletImage:require("../assets/images/wallet.png"),
+  documentImage:require("../assets/images/document.png"),
+  timeSheetImage:require("../assets/images/timesheet.png"),
+  reviewsImage:require("../assets/images/review.png"),
+  customerServiceImage:require("../assets/images/customer-service-2-line.png"),
+  videoImage:require("../assets/images/video.png"),
+  templateImage:require("../assets/images/template.png"),
+  logoutImage:require("../assets/images/logout.png"),
 };

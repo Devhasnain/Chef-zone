@@ -1,41 +1,43 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import React, { useRef } from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import React, {useRef} from 'react';
 
-import { navigationRef } from './NavigationService';
+import {navigationRef} from './NavigationService';
 import DrawerStack from './drawer/DrawerStack';
 import AuthStack from './auth/AuthStack';
 import TabStack from './tab/TabStack';
 import AppStack from './app/AppStack';
-
+import DrawerContextProvider from '../context/DrawerContext';
 
 const RootStack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="AppStack">
-      <RootStack.Screen
-        options={{headerShown: false}}
-        name="AuthStack"
-        component={AuthStack}
-      />
-      <RootStack.Screen
-        options={{headerShown: false}}
-        name="TabStack"
-        component={TabStack}
-      />
-      <RootStack.Screen
-        options={{headerShown: false}}
-        name="AppStack"
-        component={AppStack}
-      />
-      {/* Incase using Drawer */}
-      {/* <RootStack.Screen
-        options={{headerShown: false}}
-        name="DrawerStack"
-        component={DrawerStack}
-      /> */}
-    </RootStack.Navigator>
+    <DrawerContextProvider>
+      <RootStack.Navigator initialRouteName="AppStack">
+        <RootStack.Screen
+          options={{headerShown: false}}
+          name="AuthStack"
+          component={AuthStack}
+        />
+        <RootStack.Screen
+          options={{headerShown: false}}
+          name="TabStack"
+          component={TabStack}
+        />
+        <RootStack.Screen
+          options={{headerShown: false}}
+          name="AppStack"
+          component={AppStack}
+        />
+        {/* Incase using Drawer */}
+        <RootStack.Screen
+          options={{headerShown: false}}
+          name="DrawerStack"
+          component={DrawerStack}
+        />
+      </RootStack.Navigator>
+    </DrawerContextProvider>
   );
 };
 

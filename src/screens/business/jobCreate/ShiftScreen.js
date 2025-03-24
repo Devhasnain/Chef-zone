@@ -62,5 +62,3 @@ const ShiftsScreen = () => {
 };
 
 export default ShiftsScreen;
-
-

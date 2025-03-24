@@ -29,7 +29,8 @@ const BrowserJob = () => {
     filterJobs({ ...filterValues, searchQuery: query });
   };
 
-  const { bottom } = useSafeAreaInsets();
+  const { bottom } = {bottom : 0}
+  //  useSafeAreaInsets();
 
   const filterJobs = filters => {
     const { shiftType, city, shiftRole, minRate, maxRate, searchQuery } = filters;
